@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bio 24 — Tableau de bord SEO / GEO</title>
+<style>
+  /* ============ Tokens ============ */
+  :root {
+    --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Roboto Mono", monospace;
+
+    --ground: #eef2f6;         /* cool off-white, slight blue bias */
+    --surface: #ffffff;
+    --surface-2: #f6f9fb;
+    --ink: #14202b;
+    --ink-soft: #5a6b7b;
+    --ink-faint: #8493a1;
+    --line: #dde5ec;
+    --brand: #1f2c3a;          /* Apporio navy */
+    --accent: #0066cc;         /* Bio 24 blue */
+    --accent-soft: #e6f0fb;
+    --good: #1a8f52;  --good-bg: #e5f4ec;
+    --warn: #c07d16;  --warn-bg: #fbf1dd;
+    --crit: #cf3434;  --crit-bg: #fbe6e6;
+    --shadow: 0 1px 2px rgba(20,32,43,.05), 0 6px 20px rgba(20,32,43,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:#0d151f; --surface:#152030; --surface-2:#111b28;
+      --ink:#e6edf3; --ink-soft:#9db0c1; --ink-faint:#6f8397; --line:#22303f;
+      --brand:#e6edf3; --accent:#4d9bef; --accent-soft:#132639;
+      --good:#4cc17f; --good-bg:#12271b; --warn:#e0a94a; --warn-bg:#2a2213;
+      --crit:#e46a6a; --crit-bg:#2a1616;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0d151f; --surface:#152030; --surface-2:#111b28;
+    --ink:#e6edf3; --ink-soft:#9db0c1; --ink-faint:#6f8397; --line:#22303f;
+    --brand:#e6edf3; --accent:#4d9bef; --accent-soft:#132639;
+    --good:#4cc17f; --good-bg:#12271b; --warn:#e0a94a; --warn-bg:#2a2213;
+    --crit:#e46a6a; --crit-bg:#2a1616;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+  :root[data-theme="light"] {
+    --ground:#eef2f6; --surface:#ffffff; --surface-2:#f6f9fb;
+    --ink:#14202b; --ink-soft:#5a6b7b; --ink-faint:#8493a1; --line:#dde5ec;
+    --brand:#1f2c3a; --accent:#0066cc; --accent-soft:#e6f0fb;
+    --good:#1a8f52; --good-bg:#e5f4ec; --warn:#c07d16; --warn-bg:#fbf1dd;
+    --crit:#cf3434; --crit-bg:#fbe6e6;
+    --shadow: 0 1px 2px rgba(20,32,43,.05), 0 6px 20px rgba(20,32,43,.06);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: var(--sans); line-height: 1.5;
+    font-feature-settings: "kern";
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 20px 64px; }
+
+  /* ============ Header ============ */
+  header.top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+  .brand { display: flex; flex-direction: column; gap: 4px; }
+  .eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  h1 { font-size: clamp(22px, 3.2vw, 30px); margin: 0; letter-spacing: -.02em; text-wrap: balance; }
+  .sub { color: var(--ink-soft); font-size: 14px; }
+  .sub a { color: var(--accent); text-decoration: none; }
+  .head-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  .updated { font-family: var(--mono); font-size: 12px; color: var(--ink-faint); text-align: right; }
+  .status-pill { display: inline-flex; align-items: center; gap: 7px; font-weight: 600; font-size: 13px; padding: 7px 13px; border-radius: 999px; }
+  .status-pill .dot { width: 8px; height: 8px; border-radius: 50%; }
+  .s-good { background: var(--good-bg); color: var(--good); }
+  .s-good .dot { background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 22%, transparent); }
+  .s-warn { background: var(--warn-bg); color: var(--warn); }
+  .s-warn .dot { background: var(--warn); }
+  .s-crit { background: var(--crit-bg); color: var(--crit); }
+  .s-crit .dot { background: var(--crit); }
+  .toggle { border: 1px solid var(--line); background: var(--surface); color: var(--ink-soft); width: 38px; height: 34px; border-radius: 9px; cursor: pointer; font-size: 15px; display: grid; place-items: center; }
+  .toggle:hover { color: var(--ink); border-color: var(--accent); }
+
+  /* ============ Cards ============ */
+  section { margin-top: 26px; }
+  .sec-label { font-family: var(--mono); font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-faint); margin: 0 0 12px; font-weight: 600; }
+  .grid { display: grid; gap: 14px; }
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 720px){ .stats { grid-template-columns: repeat(2,1fr); } }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  .stat { padding: 16px 16px 15px; display: flex; flex-direction: column; gap: 3px; position: relative; }
+  .stat .k { font-size: 12px; color: var(--ink-soft); font-weight: 600; }
+  .stat .v { font-size: 30px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .stat .m { font-size: 12px; color: var(--ink-faint); }
+  .stat .chip { position: absolute; top: 14px; right: 14px; font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 999px; font-family: var(--mono); letter-spacing: .03em; }
+
+  /* ============ Milestones ============ */
+  .miles { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; overflow-x: auto; }
+  .mile { padding: 16px; border-right: 1px solid var(--line); position: relative; min-width: 150px; }
+  .mile:last-child { border-right: 0; }
+  .mile .when { font-family: var(--mono); font-weight: 700; font-size: 13px; color: var(--accent); }
+  .mile.base .when { color: var(--ink-soft); }
+  .mile .phase { font-size: 12px; color: var(--ink-faint); margin-bottom: 10px; }
+  .mile ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .mile li { font-size: 12.5px; color: var(--ink-soft); display: flex; gap: 6px; align-items: baseline; }
+  .mile li b { color: var(--ink); font-variant-numeric: tabular-nums; font-weight: 700; }
+
+  /* ============ Two-col ============ */
+  .cols { display: grid; grid-template-columns: 1fr 1.2fr; gap: 14px; align-items: start; }
+  @media (max-width: 820px){ .cols { grid-template-columns: 1fr; } }
+  .panel { padding: 6px 4px; }
+  .panel h3 { margin: 12px 14px 6px; font-size: 14px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 14px; border-top: 1px solid var(--line); font-size: 13.5px; }
+  .row:first-of-type { border-top: 0; }
+  .row .lbl { color: var(--ink-soft); }
+  .tag { font-size: 11px; font-weight: 700; font-family: var(--mono); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+  .t-good { background: var(--good-bg); color: var(--good); }
+  .t-warn { background: var(--warn-bg); color: var(--warn); }
+  .t-crit { background: var(--crit-bg); color: var(--crit); }
+  .t-neutral { background: var(--surface-2); color: var(--ink-faint); border: 1px solid var(--line); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-faint); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+  td { padding: 11px 14px; border-top: 1px solid var(--line); vertical-align: middle; }
+  td.kw { font-weight: 600; color: var(--ink); }
+  td .pos { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  td .target { display: block; font-size: 11px; color: var(--ink-faint); }
+
+  /* ============ Search Console manual ============ */
+  .sc { grid-template-columns: repeat(4,1fr); }
+  @media (max-width: 720px){ .sc { grid-template-columns: repeat(2,1fr); } }
+  .scbox { padding: 15px 16px; }
+  .scbox .k { font-size: 12px; color: var(--ink-soft); font-weight: 600; margin-bottom: 6px; }
+  .scbox .fill { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--ink-faint); border: 1px dashed var(--line); border-radius: 8px; padding: 8px 10px; background: var(--surface-2); }
+
+  /* ============ Journal ============ */
+  .journal .entry { padding: 15px 16px; border-top: 1px solid var(--line); }
+  .journal .entry:first-child { border-top: 0; }
+  .journal .date { font-family: var(--mono); font-size: 12px; font-weight: 700; color: var(--accent); }
+  .journal .base .date { color: var(--ink-soft); }
+  .journal .txt { font-size: 13.5px; color: var(--ink-soft); margin-top: 4px; }
+
+  footer { margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--ink-faint); }
+  footer code { font-family: var(--mono); background: var(--surface-2); border: 1px solid var(--line); padding: 1px 5px; border-radius: 5px; color: var(--ink-soft); }
+  footer .made { margin-top: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Suivi SEO · GEO</span>
+      <h1>Laboratoire Bio 24 — Tableau de bord</h1>
+      <span class="sub">Contrôle hebdomadaire · <a href="https://labobio24.com" id="siteLink">labobio24.com</a></span>
+    </div>
+    <div class="head-right">
+      <button class="toggle" id="themeToggle" title="Basculer clair / sombre" aria-label="Basculer le thème">◐</button>
+      <div>
+        <div class="updated" id="updated"></div>
+        <div id="overall" style="margin-top:6px; text-align:right;"></div>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-label">Vue d'ensemble</div>
+    <div class="grid stats" id="stats"></div>
+  </section>
+
+  <section>
+    <div class="sec-label">Objectifs · jalons</div>
+    <div class="card"><div class="miles" id="miles"></div></div>
+  </section>
+
+  <section>
+    <div class="cols">
+      <div class="card panel">
+        <h3>Santé technique</h3>
+        <div id="health"></div>
+      </div>
+      <div class="card panel">
+        <h3 style="margin-bottom:0">Visibilité mots-clés</h3>
+        <div style="overflow-x:auto"><table id="kwtable">
+          <thead><tr><th>Requête cible</th><th>Statut</th><th>Position</th></tr></thead>
+          <tbody></tbody>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label">Google Search Console — à relever manuellement</div>
+    <div class="grid sc" id="sc"></div>
+  </section>
+
+  <section class="journal">
+    <div class="sec-label">Journal hebdomadaire</div>
+    <div class="card" id="journal"></div>
+  </section>
+
+  <footer>
+    Mise à jour : la routine automatique <code>suivi-seo-bio24-hebdo</code> s'exécute chaque lundi 8h et régénère le journal.
+    Pour rafraîchir ce tableau, modifiez l'objet <code>DATA</code> en haut du fichier <code>index.html</code>, puis poussez sur GitHub.
+    <div class="made">Préparé par Apporio Infolabs</div>
+  </footer>
+</div>
+
+<script>
+/* ================================================================
+   DATA — édite cet objet chaque semaine (ou via la routine), puis
+   redéploie. C'est la seule chose à changer.
+   ================================================================ */
+const DATA = {
+  updatedLabel: "13 juil. 2026 · Semaine 0 (référence)",
+  overall: "good",              // good | warn | crit
+  overallLabel: "Système sain",
+
+  stats: [
+    { k: "Santé technique", v: "9/9", m: "pages en 200 · 0 alerte", chip: "OK", chipTone: "good" },
+    { k: "Pages indexées",  v: "~10", m: "anciennes URLs · migration en cours", chip: "MIGRATION", chipTone: "warn" },
+    { k: "Mots-clés visibles", v: "2/5", m: "sur 5 requêtes cibles", chip: "DÉBUT", chipTone: "warn" },
+    { k: "Citations IA (GEO)", v: "—", m: "test manuel à faire", chip: "MANUEL", chipTone: "neutral" },
+  ],
+
+  milestones: [
+    { when: "J0", phase: "Référence", base: true, items: [
+      ["Pages indexées", "~10 (anciennes)"], ["Clics / mois", "à mesurer"], ["Mots-clés top 3", "0"] ] },
+    { when: "J+30", phase: "Fondations", items: [
+      ["Pages indexées", "≥ 8"], ["Aperçu WhatsApp", "OK"], ["Fiche Google", "active ✓"] ] },
+    { when: "J+60", phase: "Visibilité", items: [
+      ["Clics / mois", "≥ 200"], ["Impressions", "≥ 3 000"], ["Mots-clés top 20", "≥ 15"] ] },
+    { when: "J+90", phase: "Performance", items: [
+      ["Clics / mois", "≥ 500"], ["Top 3 local", "requêtes clés"], ["Citation IA", "≥ 1"] ] },
+  ],
+
+  health: [
+    { lbl: "8 URLs clés (accueil + 5 pages + services/contact)", tag: "9/9 · 200", tone: "good" },
+    { lbl: "Google Analytics (G-4HQDXLM1K3)", tag: "présent", tone: "good" },
+    { lbl: "Adresse schema — « 6, 8 rue Abdou Karim Bourgi »", tag: "correcte", tone: "good" },
+    { lbl: "301 · /presentation-bio-24/ → /presentation", tag: "301", tone: "good" },
+    { lbl: "301 · /infos/… → /blog", tag: "301", tone: "good" },
+    { lbl: "301 · www → apex", tag: "301", tone: "good" },
+    { lbl: "sitemap.xml · robots.txt · llms.txt", tag: "200", tone: "good" },
+  ],
+
+  keywords: [
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2–9", target: "objectif : top 3" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 7–8", target: "objectif : top 5" },
+    { kw: "prélèvement à domicile Dakar", status: "Absent", tone: "crit", pos: "—", target: "page en ligne" },
+    { kw: "taux de réussite FIV Dakar", status: "Absent", tone: "crit", pos: "—", target: "forte opportunité" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "warn", pos: "—", target: "requête concurrentielle" },
+  ],
+
+  searchConsole: [
+    { k: "Impressions / mois", v: "à compléter" },
+    { k: "Clics / mois", v: "à compléter" },
+    { k: "Position moyenne", v: "à compléter" },
+    { k: "Pages indexées (Couverture)", v: "à compléter" },
+  ],
+
+  journal: [
+    { date: "Semaine du 13 juil. 2026 — Référence (S0)", base: true,
+      txt: "Site 100 % sain (9/9 en 200, GA actif, adresse correcte, 301 opérationnelles). Google affiche encore les anciennes URLs WordPress (recrawl non fait — normal à J0) ; les 5 nouvelles pages sont soumises à l'indexation. Bio 24 présent sur « 24h Dakar » et « FIV Dakar » (via annuaires/anciennes URLs), absent sur « prélèvement à domicile », « taux de réussite FIV » et « analyse médicale Dakar »." },
+  ],
+};
+
+/* ================================================================ */
+const $ = (s, r=document) => r.querySelector(s);
+const el = (t, c, h) => { const e = document.createElement(t); if(c) e.className=c; if(h!=null) e.innerHTML=h; return e; };
+const toneClass = t => ({good:"t-good",warn:"t-warn",crit:"t-crit",neutral:"t-neutral"}[t]||"t-neutral");
+
+function render() {
+  $("#updated").textContent = "Mis à jour : " + DATA.updatedLabel;
+  const ov = el("span", "status-pill s-"+DATA.overall, '<span class="dot"></span>' + DATA.overallLabel);
+  $("#overall").innerHTML = ""; $("#overall").appendChild(ov);
+
+  const stats = $("#stats"); stats.innerHTML = "";
+  DATA.stats.forEach(s => {
+    const c = el("div", "card stat");
+    c.innerHTML = `<span class="chip ${toneClass(s.chipTone)}">${s.chip}</span>
+      <span class="k">${s.k}</span><span class="v">${s.v}</span><span class="m">${s.m}</span>`;
+    stats.appendChild(c);
+  });
+
+  const miles = $("#miles"); miles.innerHTML = "";
+  DATA.milestones.forEach(m => {
+    const d = el("div", "mile" + (m.base ? " base" : ""));
+    d.innerHTML = `<div class="when">${m.when}</div><div class="phase">${m.phase}</div>
+      <ul>${m.items.map(([a,b]) => `<li>${a} <b>${b}</b></li>`).join("")}</ul>`;
+    miles.appendChild(d);
+  });
+
+  const h = $("#health"); h.innerHTML = "";
+  DATA.health.forEach(x => {
+    const r = el("div", "row");
+    r.innerHTML = `<span class="lbl">${x.lbl}</span><span class="tag ${toneClass(x.tone)}">${x.tag}</span>`;
+    h.appendChild(r);
+  });
+
+  const tb = $("#kwtable tbody"); tb.innerHTML = "";
+  DATA.keywords.forEach(k => {
+    const tr = el("tr");
+    tr.innerHTML = `<td class="kw">${k.kw}</td>
+      <td><span class="tag ${toneClass(k.tone)}">${k.status}</span></td>
+      <td><span class="pos">${k.pos}</span><span class="target">${k.target}</span></td>`;
+    tb.appendChild(tr);
+  });
+
+  const sc = $("#sc"); sc.innerHTML = "";
+  DATA.searchConsole.forEach(x => {
+    const b = el("div", "card scbox");
+    b.innerHTML = `<div class="k">${x.k}</div><div class="fill">${x.v}</div>`;
+    sc.appendChild(b);
+  });
+
+  const j = $("#journal"); j.innerHTML = "";
+  DATA.journal.forEach(e => {
+    const d = el("div", "entry" + (e.base ? " base" : ""));
+    d.innerHTML = `<div class="date">${e.date}</div><div class="txt">${e.txt}</div>`;
+    j.appendChild(d);
+  });
+}
+render();
+
+/* Theme toggle */
+const root = document.documentElement;
+$("#themeToggle").addEventListener("click", () => {
+  const cur = root.getAttribute("data-theme")
+    || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+});
+</script>
+</body>
+</html>
