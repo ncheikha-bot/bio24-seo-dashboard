@@ -211,14 +211,14 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "13 juil. 2026 · Semaine 0 (référence)",
+  updatedLabel: "20 juil. 2026 · Semaine 1",
   overall: "good",              // good | warn | crit
   overallLabel: "Système sain",
 
   stats: [
-    { k: "Santé technique", v: "9/9", m: "pages en 200 · 0 alerte", chip: "OK", chipTone: "good" },
+    { k: "Santé technique", v: "11/11", m: "pages en 200 · 0 alerte", chip: "OK", chipTone: "good" },
     { k: "Pages indexées",  v: "~10", m: "anciennes URLs · migration en cours", chip: "MIGRATION", chipTone: "warn" },
-    { k: "Mots-clés visibles", v: "2/5", m: "sur 5 requêtes cibles", chip: "DÉBUT", chipTone: "warn" },
+    { k: "Mots-clés visibles", v: "5/8", m: "sur 8 requêtes cibles · +3 vs S0", chip: "PROGRESSE", chipTone: "good" },
     { k: "Citations IA (GEO)", v: "—", m: "test manuel à faire", chip: "MANUEL", chipTone: "neutral" },
   ],
 
@@ -244,11 +244,14 @@ const DATA = {
   ],
 
   keywords: [
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2–9", target: "objectif : top 3" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 7–8", target: "objectif : top 5" },
-    { kw: "prélèvement à domicile Dakar", status: "Absent", tone: "crit", pos: "—", target: "page en ligne" },
-    { kw: "taux de réussite FIV Dakar", status: "Absent", tone: "crit", pos: "—", target: "forte opportunité" },
-    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "warn", pos: "—", target: "requête concurrentielle" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "objectif : top 3" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 4  ⬤", target: "nouvelle apparition" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 6  ↑", target: "gagne des places (7-8 → 6)" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 6  ⬤", target: "nouvelle apparition" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 8  ⬤", target: "nouvelle apparition" },
+    { kw: "prélèvement à domicile Dakar", status: "Absent", tone: "crit", pos: "—  =", target: "cible page domicile" },
+    { kw: "taux de réussite FIV Dakar", status: "Absent", tone: "crit", pos: "—  =", target: "forte opportunité (page FIV)" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "warn", pos: "—  =", target: "requête concurrentielle" },
   ],
 
   searchConsole: [
@@ -259,6 +262,8 @@ const DATA = {
   ],
 
   journal: [
+    { date: "Semaine du 20 juil. 2026 — S1",
+      txt: "Stable techniquement (11/11 OK). Indexation inchangée (recrawl Google en attente). Positionnement en progression : 3 nouveaux mots-clés visibles (« la nuit » ~#4, « prise de sang à domicile » ~#8, « spermogramme » ~#6) et « FIV Dakar laboratoire » gagne des places (~#6). L'adresse corrigée « Bourgi » se propage dans les annuaires. Les 3 requêtes encore absentes (prélèvement à domicile, taux de réussite FIV, analyse médicale Dakar) attendent l'indexation des nouvelles pages." },
     { date: "Semaine du 13 juil. 2026 — Référence (S0)", base: true,
       txt: "Site 100 % sain (9/9 en 200, GA actif, adresse correcte, 301 opérationnelles). Google affiche encore les anciennes URLs WordPress (recrawl non fait — normal à J0) ; les 5 nouvelles pages sont soumises à l'indexation. Bio 24 présent sur « 24h Dakar » et « FIV Dakar » (via annuaires/anciennes URLs), absent sur « prélèvement à domicile », « taux de réussite FIV » et « analyse médicale Dakar »." },
   ],
