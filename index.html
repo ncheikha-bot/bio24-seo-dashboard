@@ -212,13 +212,13 @@
    ================================================================ */
 const DATA = {
   updatedLabel: "13 juil. 2026 · Semaine 2",
-  overall: "good",              // good | warn | crit
-  overallLabel: "Système sain",
+  overall: "warn",              // good | warn | crit
+  overallLabel: "Soft-404 à corriger",
 
   stats: [
-    { k: "Santé technique", v: "11/11", m: "pages en 200 · 0 alerte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "~10", m: "page FIV désormais dans les SERP", chip: "MIGRATION", chipTone: "warn" },
-    { k: "Mots-clés visibles", v: "11/26", m: "+1 vs S1 · nouvelles pages qui rankent", chip: "SUIVI", chipTone: "good" },
+    { k: "Santé technique", v: "11/11", m: "pages en 200 · 1 alerte soft-404", chip: "ALERTE", chipTone: "warn" },
+    { k: "Pages indexées",  v: "~10", m: "nouvelles URLs + pages FIV en #1", chip: "MIGRATION", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "14/26", m: "+4 vs S1 · groupe A à 10/10", chip: "SUIVI", chipTone: "good" },
     { k: "Citations IA (GEO)", v: "—", m: "test manuel à faire", chip: "MANUEL", chipTone: "neutral" },
   ],
 
@@ -234,26 +234,28 @@ const DATA = {
   ],
 
   health: [
-    { lbl: "8 URLs clés (accueil + 5 pages + services/contact)", tag: "9/9 · 200", tone: "good" },
+    { lbl: "URL inexistante → devrait renvoyer 404", tag: "200 · soft-404", tone: "crit" },
+    { lbl: "11 URLs clés (accueil + 5 pages + services/contact + fichiers)", tag: "11/11 · 200", tone: "good" },
+    { lbl: "Titres des 5 pages SEO", tag: "distincts", tone: "good" },
     { lbl: "Google Analytics (G-4HQDXLM1K3)", tag: "présent", tone: "good" },
     { lbl: "Adresse schema — « 6, 8 rue Abdou Karim Bourgi »", tag: "correcte", tone: "good" },
     { lbl: "301 · /presentation-bio-24/ → /presentation", tag: "301", tone: "good" },
     { lbl: "301 · /infos/… → /blog", tag: "301", tone: "good" },
     { lbl: "301 · www → apex", tag: "301", tone: "good" },
-    { lbl: "sitemap.xml · robots.txt · llms.txt", tag: "200", tone: "good" },
+    { lbl: "sitemap.xml · robots.txt · llms.txt", tag: "200 · 18 URLs", tone: "good" },
   ],
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "warn", pos: "—  =", target: "requête concurrentielle" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Absent", tone: "warn", pos: "—  =", target: "requête concurrentielle" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "objectif : top 3" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 4  =", target: "stable (via DIMO)" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "absent → #2 (gros gain)" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 8  ⬤", target: "absent → #8 · générique concurrentielle" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 4  ⬤", target: "absent → #4 · générique concurrentielle" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "warn", pos: "≈ 1  ↑", target: "#1 mais via /randonnee/ (soft-404)" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑", target: "4 → 1" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  ⬤", target: "absent → #2 (gros gain)" },
     { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 7  ↑", target: "8 → 7" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  ↑", target: "6 → 1 · page FIV en tête" },
-    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 8  ⬤", target: "absent → #8 (opportunité captée)" },
-    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 3  =", target: "point fort fertilité" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  ↑", target: "6 → 1 · Bio 24 en #1 et #2" },
+    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  ⬤", target: "absent → #1 · /resultats-fiv" },
+    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "3 → 2 · point fort fertilité" },
     { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 6  =", target: "stable" },
   ],
 
@@ -266,7 +268,7 @@ const DATA = {
 
   journal: [
     { date: "Semaine du 13 juil. 2026 — S2 (relevé complet)",
-      txt: "Tournant : les nouvelles pages SEO commencent à s'indexer et à ranker. La page /fiv-biologie-reproduction passe de #6 à #1 sur « FIV Dakar laboratoire », capture « taux de réussite FIV Dakar » (absent → ~#8) et ressort sur spermogramme. « prélèvement à domicile Dakar » entre à ~#2 (était absent) et « analyses médicales liste Dakar » à ~#10. Total visibles 11/26 (+1 vs S1). Deux reculs de longue traîne volatile : bilan de fertilité (#1 → absent) et bilan hormonal (#4 → absent). Site 100 % sain, aucune alerte. Search Console non relevé cette semaine : le compte Google connecté (ncheikha@gmail.com) n'a pas accès à la propriété — chiffres à saisir manuellement." },
+      txt: "Semaine de bascule : les nouvelles pages SEO sont indexées et rankent fort. /resultats-fiv prend le #1 sur « taux de réussite FIV Dakar » (l'opportunité phare) et /fiv-biologie-reproduction le #1 sur « FIV Dakar laboratoire » — Bio 24 truste les 2 premières places. Les deux génériques concurrentielles tombent enfin (analyses médicales Sénégal #4, analyse médicale Dakar #8), ISO 15189 entre à #3, prélèvement à domicile à #2. Groupe A prioritaire : 10/10 visibles, total 14/26 (vs 10/26), dont 6 requêtes en #1. ⚠️ ALERTE : le SPA renvoie 200 sur n'importe quelle URL (soft-404) — d'où /randonnee/ qui ranke #1 sur « 24h Dakar ». À corriger côté nginx (vrai 404 + 301 des anciennes URLs), sinon positions fragiles et duplication de contenu. Search Console non relevé : compte Google connecté sans accès à la propriété." },
     { date: "Semaine du 6 juil. 2026 — S1 (relevé complet)",
       txt: "Site sain, aucune alerte. Search Console : 229 clics · 2 280 impressions · CTR 10,1 % · position moyenne 4,3 (surtout de la marque sur les pages existantes). Suivi étendu aux 26 mots-clés retenus → visible sur 10/26. Points forts : cluster FIV/fertilité (bilan de fertilité ~#1, résultats FIV Sénégal ~#3, FIV Dakar ~#6, spermogramme ~#6), 24h/nuit/garde, résultats en ligne et bilan hormonal (~#4). À conquérir : requêtes génériques (analyse médicale Dakar/Sénégal, ISO 15189), prélèvement à domicile, et la longue traîne blog — en attente d'indexation des nouvelles pages et de contenu éditorial." },
     { date: "Semaine du 29 juin 2026 — Référence (S0)", base: true,
