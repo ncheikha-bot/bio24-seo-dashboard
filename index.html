@@ -212,11 +212,11 @@
    ================================================================ */
 const DATA = {
   updatedLabel: "13 juil. 2026 · Semaine 2",
-  overall: "warn",              // good | warn | crit
-  overallLabel: "Soft-404 à corriger",
+  overall: "good",              // good | warn | crit
+  overallLabel: "Système sain · soft-404 corrigé",
 
   stats: [
-    { k: "Santé technique", v: "11/11", m: "pages en 200 · 1 alerte soft-404", chip: "ALERTE", chipTone: "warn" },
+    { k: "Santé technique", v: "82/82", m: "recette verif-404 · 0 échec", chip: "OK", chipTone: "good" },
     { k: "Pages indexées",  v: "~10", m: "nouvelles URLs + pages FIV en #1", chip: "MIGRATION", chipTone: "good" },
     { k: "Mots-clés visibles", v: "14/26", m: "+4 vs S1 · groupe A à 10/10", chip: "SUIVI", chipTone: "good" },
     { k: "Citations IA (GEO)", v: "—", m: "test manuel à faire", chip: "MANUEL", chipTone: "neutral" },
@@ -234,7 +234,14 @@ const DATA = {
   ],
 
   health: [
-    { lbl: "URL inexistante → devrait renvoyer 404", tag: "200 · soft-404", tone: "crit" },
+    { lbl: "Recette verif-404.sh (déployé 16/07)", tag: "82 · 0 échec", tone: "good" },
+    { lbl: "URL inexistante → vrai 404 (soft-404 corrigé)", tag: "404", tone: "good" },
+    { lbl: "Vestiges WordPress / spam → 410", tag: "410", tone: "good" },
+    { lbl: "22 articles de blog servis", tag: "22/22 · 200", tone: "good" },
+    { lbl: "Canonical auto-référent (plus de canonical qui redirige)", tag: "correct", tone: "good" },
+    { lbl: "Sitemap — chaque URL répond 200", tag: "40/40", tone: "good" },
+    { lbl: "301 anciennes URLs → 1 seul saut, cibles en 200", tag: "10/10", tone: "good" },
+    { lbl: "/randonnee/ → 301 → /urgences-24h/ (signal transféré)", tag: "301", tone: "good" },
     { lbl: "11 URLs clés (accueil + 5 pages + services/contact + fichiers)", tag: "11/11 · 200", tone: "good" },
     { lbl: "Titres des 5 pages SEO", tag: "distincts", tone: "good" },
     { lbl: "Google Analytics (G-4HQDXLM1K3)", tag: "présent", tone: "good" },
@@ -268,7 +275,7 @@ const DATA = {
 
   journal: [
     { date: "Semaine du 13 juil. 2026 — S2 (relevé complet)",
-      txt: "Semaine de bascule : les nouvelles pages SEO sont indexées et rankent fort. /resultats-fiv prend le #1 sur « taux de réussite FIV Dakar » (l'opportunité phare) et /fiv-biologie-reproduction le #1 sur « FIV Dakar laboratoire » — Bio 24 truste les 2 premières places. Les deux génériques concurrentielles tombent enfin (analyses médicales Sénégal #4, analyse médicale Dakar #8), ISO 15189 entre à #3, prélèvement à domicile à #2. Groupe A prioritaire : 10/10 visibles, total 14/26 (vs 10/26), dont 6 requêtes en #1. ⚠️ ALERTE : le SPA renvoie 200 sur n'importe quelle URL (soft-404) — d'où /randonnee/ qui ranke #1 sur « 24h Dakar ». À corriger côté nginx (vrai 404 + 301 des anciennes URLs), sinon positions fragiles et duplication de contenu. Search Console non relevé : compte Google connecté sans accès à la propriété." },
+      txt: "Semaine de bascule : les nouvelles pages SEO sont indexées et rankent fort. /resultats-fiv prend le #1 sur « taux de réussite FIV Dakar » (l'opportunité phare) et /fiv-biologie-reproduction le #1 sur « FIV Dakar laboratoire » — Bio 24 truste les 2 premières places. Les deux génériques concurrentielles tombent enfin (analyses médicales Sénégal #4, analyse médicale Dakar #8), ISO 15189 entre à #3, prélèvement à domicile à #2. Groupe A prioritaire : 10/10 visibles, total 14/26 (vs 10/26), dont 6 requêtes en #1. ✅ Le soft-404 détecté en début de semaine (le SPA renvoyait 200 sur n'importe quelle URL, d'où /randonnee/ #1 sur « 24h Dakar ») a été corrigé et déployé le 16/07 : recette verif-404.sh à 82 réussis · 0 échec — vrai 404 sur les URLs inconnues, 410 sur les vestiges WordPress, 22/22 articles de blog servis, 40/40 URLs du sitemap en 200, canonical auto-référents, et /randonnee/ → 301 → /urgences-24h/ qui transfère le signal vers la vraie page. Positions à surveiller en S3 : le temps que Google recrawle et consolide, une oscillation est normale. Search Console non relevé : compte Google connecté sans accès à la propriété." },
     { date: "Semaine du 6 juil. 2026 — S1 (relevé complet)",
       txt: "Site sain, aucune alerte. Search Console : 229 clics · 2 280 impressions · CTR 10,1 % · position moyenne 4,3 (surtout de la marque sur les pages existantes). Suivi étendu aux 26 mots-clés retenus → visible sur 10/26. Points forts : cluster FIV/fertilité (bilan de fertilité ~#1, résultats FIV Sénégal ~#3, FIV Dakar ~#6, spermogramme ~#6), 24h/nuit/garde, résultats en ligne et bilan hormonal (~#4). À conquérir : requêtes génériques (analyse médicale Dakar/Sénégal, ISO 15189), prélèvement à domicile, et la longue traîne blog — en attente d'indexation des nouvelles pages et de contenu éditorial." },
     { date: "Semaine du 29 juin 2026 — Référence (S0)", base: true,
