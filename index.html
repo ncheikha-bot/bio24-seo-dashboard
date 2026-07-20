@@ -189,7 +189,7 @@
   </section>
 
   <section>
-    <div class="sec-label">Google Search Console — 7 derniers jours</div>
+    <div class="sec-label">Google Search Console — relevé 05–18/07 (~14 j)</div>
     <div class="grid sc" id="sc"></div>
   </section>
 
@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "13 juil. 2026 · Semaine 2",
+  updatedLabel: "20 juil. 2026 · Semaine 3",
   overall: "good",              // good | warn | crit
-  overallLabel: "Système sain · soft-404 corrigé",
+  overallLabel: "Système sain · soft-404 résolu en prod",
 
   stats: [
-    { k: "Santé technique", v: "82/82", m: "recette verif-404 · 0 échec", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "~10", m: "nouvelles URLs + pages FIV en #1", chip: "MIGRATION", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "14/26", m: "+4 vs S1 · groupe A à 10/10", chip: "SUIVI", chipTone: "good" },
-    { k: "Citations IA (GEO)", v: "—", m: "test manuel à faire", chip: "MANUEL", chipTone: "neutral" },
+    { k: "Santé technique", v: "OK", m: "soft-404 résolu · 404 réels en prod", chip: "OK", chipTone: "good" },
+    { k: "Pages indexées",  v: "29", m: "Search Console · legacy WP en abandon", chip: "MIGRATION", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "13/26", m: "groupe A 10/10 · 5 en #1", chip: "SUIVI", chipTone: "good" },
+    { k: "Clics (14 j)", v: "930", m: "9,02 k impr · CTR 10,3 % · pos. 5", chip: "GSC", chipTone: "good" },
   ],
 
   milestones: [
@@ -254,26 +254,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 8  ⬤", target: "absent → #8 · générique concurrentielle" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 4  ⬤", target: "absent → #4 · générique concurrentielle" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "warn", pos: "≈ 1  ↑", target: "#1 mais via /randonnee/ (soft-404)" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑", target: "4 → 1" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  ⬤", target: "absent → #2 (gros gain)" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 7  ↑", target: "8 → 7" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  ↑", target: "6 → 1 · Bio 24 en #1 et #2" },
-    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  ⬤", target: "absent → #1 · /resultats-fiv" },
-    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "3 → 2 · point fort fertilité" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 6  =", target: "stable" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 9  ↓", target: "8 → 9 · générique concurrentielle" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 4  =", target: "stable · générique concurrentielle" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "warn", pos: "≈ 1  =", target: "#1 encore via /randonnee/ (recrawl à venir)" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 9  ↓", target: "7 → 9" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 · Bio 24 en #1 et #2" },
+    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /resultats-fiv" },
+    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · point fort fertilité" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 5  ↑", target: "6 → 5" },
   ],
 
   searchConsole: [
-    { k: "Impressions (7 j)", v: "à compléter" },
-    { k: "Clics (7 j)", v: "à compléter" },
-    { k: "Position moyenne", v: "à compléter" },
-    { k: "CTR moyen", v: "à compléter" },
+    { k: "Impressions (14 j)", v: "9,02 k" },
+    { k: "Clics (14 j)", v: "930" },
+    { k: "Position moyenne", v: "5" },
+    { k: "CTR moyen", v: "10,3 %" },
   ],
 
   journal: [
+    { date: "Semaine du 20 juil. 2026 — S3 (relevé complet + Search Console)",
+      txt: "Semaine de consolidation. ✅ L'alerte soft-404 de S2 est confirmée résolue en production : une URL inconnue renvoie un vrai 404 et /randonnee/ → 301 → /urgences-24h/ (signal transféré vers la vraie page). ✅ Search Console relevé automatiquement pour la 1re fois : 930 clics · 9,02 k impressions · CTR 10,3 % · position moyenne 5 (période affichée 05–18/07, ~14 j) — soit ~2× le rythme de S1 à durée équivalente ; 29 pages dans l'index, 882 non indexées (dont 623 anciennes URLs WordPress que Google abandonne, sain). Le cœur prioritaire tient : groupe A 10/10 visibles, 5 requêtes en #1 (24h, nuit, FIV, taux de réussite FIV, garde), FIV Dakar en #1 et #2. Léger reflux du secondaire : « résultats analyses en ligne » retombe de #1 à ~#7, « analyses médicales liste » sort du top → 13/26 (vs 14/26). Ce tassement est attendu pendant que Google recrawle depuis le correctif du 16/07 ; « 24h Dakar » reste #1 via /randonnee/ (pas encore recrawlée), à re-vérifier en S4. Gains : ISO 15189 #3→#2, spermogramme #6→#5." },
     { date: "Semaine du 13 juil. 2026 — S2 (relevé complet)",
       txt: "Semaine de bascule : les nouvelles pages SEO sont indexées et rankent fort. /resultats-fiv prend le #1 sur « taux de réussite FIV Dakar » (l'opportunité phare) et /fiv-biologie-reproduction le #1 sur « FIV Dakar laboratoire » — Bio 24 truste les 2 premières places. Les deux génériques concurrentielles tombent enfin (analyses médicales Sénégal #4, analyse médicale Dakar #8), ISO 15189 entre à #3, prélèvement à domicile à #2. Groupe A prioritaire : 10/10 visibles, total 14/26 (vs 10/26), dont 6 requêtes en #1. ✅ Le soft-404 détecté en début de semaine (le SPA renvoyait 200 sur n'importe quelle URL, d'où /randonnee/ #1 sur « 24h Dakar ») a été corrigé et déployé le 16/07 : recette verif-404.sh à 82 réussis · 0 échec — vrai 404 sur les URLs inconnues, 410 sur les vestiges WordPress, 22/22 articles de blog servis, 40/40 URLs du sitemap en 200, canonical auto-référents, et /randonnee/ → 301 → /urgences-24h/ qui transfère le signal vers la vraie page. Positions à surveiller en S3 : le temps que Google recrawle et consolide, une oscillation est normale. Search Console non relevé : compte Google connecté sans accès à la propriété." },
     { date: "Semaine du 6 juil. 2026 — S1 (relevé complet)",
