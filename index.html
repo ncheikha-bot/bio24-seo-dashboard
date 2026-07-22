@@ -189,7 +189,7 @@
   </section>
 
   <section>
-    <div class="sec-label">Google Search Console — relevé 05–18/07 (~14 j)</div>
+    <div class="sec-label">Google Search Console — relevé 05–20/07 (~16 j)</div>
     <div class="grid sc" id="sc"></div>
   </section>
 
@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "20 juil. 2026 · Semaine 3",
+  updatedLabel: "22 juil. 2026 · Semaine 4",
   overall: "good",              // good | warn | crit
-  overallLabel: "Système sain · soft-404 résolu en prod",
+  overallLabel: "Système sain · reflux de consolidation attendu",
 
   stats: [
-    { k: "Santé technique", v: "OK", m: "soft-404 résolu · 404 réels en prod", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "29", m: "Search Console · legacy WP en abandon", chip: "MIGRATION", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "13/26", m: "groupe A 10/10 · 5 en #1", chip: "SUIVI", chipTone: "good" },
-    { k: "Clics (14 j)", v: "930", m: "9,02 k impr · CTR 10,3 % · pos. 5", chip: "GSC", chipTone: "good" },
+    { k: "Santé technique", v: "OK", m: "soft-404 résolu · aucune alerte", chip: "OK", chipTone: "good" },
+    { k: "Pages indexées",  v: "29", m: "Search Console · stable · legacy WP en abandon", chip: "MIGRATION", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "12/26", m: "groupe A 10/10 · 2 en #1", chip: "SUIVI", chipTone: "good" },
+    { k: "Clics (16 j)", v: "1,06 k", m: "10,3 k impr · CTR 10,3 % · pos. 5", chip: "GSC", chipTone: "good" },
   ],
 
   milestones: [
@@ -254,26 +254,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 9  ↓", target: "8 → 9 · générique concurrentielle" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "9 → 2 · gain sur générique concurrentielle" },
     { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 4  =", target: "stable · générique concurrentielle" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "warn", pos: "≈ 1  =", target: "#1 encore via /randonnee/ (recrawl à venir)" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "1 → 3 · /randonnee/ recrawlée → /nous-contacter" },
     { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 9  ↓", target: "7 → 9" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 · Bio 24 en #1 et #2" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "2 → 3" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 8  ↑", target: "9 → 8" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "1 → 2 · Bio 24 garde #2 et #3" },
     { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /resultats-fiv" },
     { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · point fort fertilité" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 5  ↑", target: "6 → 5" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "5 → 2" },
   ],
 
   searchConsole: [
-    { k: "Impressions (14 j)", v: "9,02 k" },
-    { k: "Clics (14 j)", v: "930" },
+    { k: "Impressions (16 j)", v: "10,3 k" },
+    { k: "Clics (16 j)", v: "1,06 k" },
     { k: "Position moyenne", v: "5" },
     { k: "CTR moyen", v: "10,3 %" },
   ],
 
   journal: [
+    { date: "Semaine du 22 juil. 2026 — S4 (relevé complet + Search Console)",
+      txt: "Reflux de consolidation attendu. ✅ Santé technique RAS (11/11 en 200, URL inconnue → 404, /randonnee/ → 301 → /urgences-24h/, GA + adresse + 301 OK) — aucune alerte. Le correctif du 16/07 a fini de se propager : /randonnee/ a été recrawlée et sort du #1 sur « 24h Dakar » (réserve S3 tranchée) — /nous-contacter sert désormais à ~#3, le signal est transféré mais ne conserve pas le #1. Plusieurs #1 prioritaires se tassent vers #2–#3 (FIV #1→#2 mais Bio 24 garde #2 et #3, garde #1→#5, ISO 15189 #2→#3, prélèvement à domicile #2→#3), et « résultats analyses en ligne » sort du top → on ne compte plus que 2 requêtes en #1 (nuit, taux de réussite FIV) contre 5 en S3. MAIS deux gains forts sur les génériques concurrentielles à fort volume : « laboratoire analyse médicale Dakar » bondit #9→#2 et « spermogramme Dakar » #5→#2. Groupe A 10/10 visibles (Bio 24 reste top-3 sur quasiment toutes les prioritaires) ; total 12/26 (−1 vs S3). ✅ Search Console (2e relevé auto consécutif) : 1,06 k clics · 10,3 k impressions · CTR 10,3 % · position 5 (05–20/07, ~16 j) = même cadence journalière que S3 (~65 clics/j), croissance linéaire et saine, position et CTR inchangés ; top requêtes toujours 100 % marque. Indexation stable : 29 dans l'index · 882 non indexées (dont 623 anciennes URLs WP en abandon)." },
     { date: "Semaine du 20 juil. 2026 — S3 (relevé complet + Search Console)",
       txt: "Semaine de consolidation. ✅ L'alerte soft-404 de S2 est confirmée résolue en production : une URL inconnue renvoie un vrai 404 et /randonnee/ → 301 → /urgences-24h/ (signal transféré vers la vraie page). ✅ Search Console relevé automatiquement pour la 1re fois : 930 clics · 9,02 k impressions · CTR 10,3 % · position moyenne 5 (période affichée 05–18/07, ~14 j) — soit ~2× le rythme de S1 à durée équivalente ; 29 pages dans l'index, 882 non indexées (dont 623 anciennes URLs WordPress que Google abandonne, sain). Le cœur prioritaire tient : groupe A 10/10 visibles, 5 requêtes en #1 (24h, nuit, FIV, taux de réussite FIV, garde), FIV Dakar en #1 et #2. Léger reflux du secondaire : « résultats analyses en ligne » retombe de #1 à ~#7, « analyses médicales liste » sort du top → 13/26 (vs 14/26). Ce tassement est attendu pendant que Google recrawle depuis le correctif du 16/07 ; « 24h Dakar » reste #1 via /randonnee/ (pas encore recrawlée), à re-vérifier en S4. Gains : ISO 15189 #3→#2, spermogramme #6→#5." },
     { date: "Semaine du 13 juil. 2026 — S2 (relevé complet)",
