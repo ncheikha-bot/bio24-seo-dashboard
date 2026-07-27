@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "22 juil. 2026 · Semaine 4",
+  updatedLabel: "27 juil. 2026 · Semaine 5",
   overall: "good",              // good | warn | crit
-  overallLabel: "Système sain · reflux de consolidation attendu",
+  overallLabel: "Trafic en accélération · 2 génériques décrochent",
 
   stats: [
     { k: "Santé technique", v: "OK", m: "soft-404 résolu · aucune alerte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "29", m: "Search Console · stable · legacy WP en abandon", chip: "MIGRATION", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "12/26", m: "groupe A 10/10 · 2 en #1", chip: "SUIVI", chipTone: "good" },
-    { k: "Clics (16 j)", v: "1,06 k", m: "10,3 k impr · CTR 10,3 % · pos. 5", chip: "GSC", chipTone: "good" },
+    { k: "Pages indexées",  v: "29", m: "Search Console · identique depuis 3 semaines", chip: "MIGRATION", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "11/26", m: "groupe A 8/10 · 2 en #1 · 6 en top 3", chip: "SUIVI", chipTone: "warn" },
+    { k: "Clics (20 j)", v: "1,42 k", m: "13,5 k impr · CTR 10,5 % · pos. 5 · ~90 clics/j", chip: "GSC ↑", chipTone: "good" },
   ],
 
   milestones: [
@@ -254,26 +254,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "9 → 2 · gain sur générique concurrentielle" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 4  =", target: "stable · générique concurrentielle" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "1 → 3 · /randonnee/ recrawlée → /nous-contacter" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "2 → 3" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 8  ↑", target: "9 → 8" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "1 → 2 · Bio 24 garde #2 et #3" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "crit", pos: "—  sort du top", target: "2 → absent · SERP prise par les concurrents" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Absent", tone: "crit", pos: "—  sort du top", target: "4 → absent · même SERP concurrentielle" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  =", target: "#3 tenu · via /randonnee/ (301)" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /nous-contacter" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "3 → 2" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 7  ↑", target: "8 → 7" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · Bio 24 garde #2 et #3" },
     { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /resultats-fiv" },
     { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · point fort fertilité" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "5 → 2" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
   ],
 
   searchConsole: [
-    { k: "Impressions (16 j)", v: "10,3 k" },
-    { k: "Clics (16 j)", v: "1,06 k" },
+    { k: "Impressions (20 j)", v: "13,5 k" },
+    { k: "Clics (20 j)", v: "1,42 k" },
     { k: "Position moyenne", v: "5" },
-    { k: "CTR moyen", v: "10,3 %" },
+    { k: "CTR moyen", v: "10,5 %" },
   ],
 
   journal: [
+    { date: "Semaine du 27 juil. 2026 — S5 (relevé complet + Search Console)",
+      txt: "Semaine à deux visages. ✅ Santé technique RAS (11/11 en 200, URL inconnue → 404, /randonnee/ → 301 → /urgences-24h/, GA + adresse + 301 OK) — aucune alerte, statut identique à S4. ✅ Le trafic ACCÉLÈRE : 1,42 k clics · 13,5 k impressions · CTR 10,5 % · position 5 (05–24/07, ~20 j). Les 4 jours ajoutés depuis S4 apportent +360 clics et +3 200 impressions, soit ~90 clics/j contre ~66 clics/j de moyenne cumulée — première rupture de rythme à la hausse depuis le début du suivi (S3 et S4 étaient parfaitement linéaires) ; le CTR remonte aussi (10,3 % → 10,5 %) et 543 requêtes distinctes remontent des impressions. ⚠️ MAIS les deux génériques les plus disputées décrochent du top 10 : « laboratoire analyse médicale Dakar » (#2 → absent) et « laboratoire d'analyses médicales Sénégal » (#4 → absent) — le groupe A passe de 10/10 à 8/10 visibles, total 11/26. Ce n'est PAS un problème technique : la variante marquée ressort à ~#3 (le site est bien indexé et éligible) et /nous-contacter — la page qui portait ces deux positions — ranke toujours #1 sur « ouvert la nuit ». C'est un déclassement concurrentiel : Biolab7, BIONISSA, Bio7, SUNULABO, Houdrouge et Bio Renaissance occupent tout le top 10, tous avec une home optimisée exactement sur cette requête. ⬤ En face, un gain net et durable côté fertilité : « transfert embryon congelé Dakar » entre à ~#2 (1re apparition depuis S0, via /resultats-fiv), et tout le cluster FIV est stable en top 3 (FIV #2, taux de réussite #1, résultats FIV #2, spermogramme #2). Domicile en progrès : prélèvement #3→#2, prise de sang #8→#7. Indexation identique au chiffre près pour la 3e semaine (29 dans l'index · 882 non indexées). À traiter : les positions restantes reposent encore sur des URLs legacy (/randonnee/, /presentation-bio-24/, /Actu Lab/…) et non sur les pages SEO dédiées, qui ne remontent toujours pas en propre ; retravailler le H1/title de l'accueil sur « Laboratoire d'analyses médicales à Dakar » ; corriger l'ancienne adresse « 13 bis Rue St Michel » encore affichée sur plusieurs annuaires tiers." },
     { date: "Semaine du 22 juil. 2026 — S4 (relevé complet + Search Console)",
       txt: "Reflux de consolidation attendu. ✅ Santé technique RAS (11/11 en 200, URL inconnue → 404, /randonnee/ → 301 → /urgences-24h/, GA + adresse + 301 OK) — aucune alerte. Le correctif du 16/07 a fini de se propager : /randonnee/ a été recrawlée et sort du #1 sur « 24h Dakar » (réserve S3 tranchée) — /nous-contacter sert désormais à ~#3, le signal est transféré mais ne conserve pas le #1. Plusieurs #1 prioritaires se tassent vers #2–#3 (FIV #1→#2 mais Bio 24 garde #2 et #3, garde #1→#5, ISO 15189 #2→#3, prélèvement à domicile #2→#3), et « résultats analyses en ligne » sort du top → on ne compte plus que 2 requêtes en #1 (nuit, taux de réussite FIV) contre 5 en S3. MAIS deux gains forts sur les génériques concurrentielles à fort volume : « laboratoire analyse médicale Dakar » bondit #9→#2 et « spermogramme Dakar » #5→#2. Groupe A 10/10 visibles (Bio 24 reste top-3 sur quasiment toutes les prioritaires) ; total 12/26 (−1 vs S3). ✅ Search Console (2e relevé auto consécutif) : 1,06 k clics · 10,3 k impressions · CTR 10,3 % · position 5 (05–20/07, ~16 j) = même cadence journalière que S3 (~65 clics/j), croissance linéaire et saine, position et CTR inchangés ; top requêtes toujours 100 % marque. Indexation stable : 29 dans l'index · 882 non indexées (dont 623 anciennes URLs WP en abandon)." },
     { date: "Semaine du 20 juil. 2026 — S3 (relevé complet + Search Console)",
