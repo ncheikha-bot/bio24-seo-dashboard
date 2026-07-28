@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "27 juil. 2026 · Semaine 5",
+  updatedLabel: "28 juil. 2026 · post-déploiement (J+1)",
   overall: "good",              // good | warn | crit
-  overallLabel: "Trafic en accélération · 2 génériques décrochent",
+  overallLabel: "Correctifs déployés · l'index décolle (29 → 50)",
 
   stats: [
-    { k: "Santé technique", v: "OK", m: "soft-404 résolu · aucune alerte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "29", m: "Search Console · identique depuis 3 semaines", chip: "MIGRATION", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "11/26", m: "groupe A 8/10 · 2 en #1 · 6 en top 3", chip: "SUIVI", chipTone: "warn" },
-    { k: "Clics (20 j)", v: "1,42 k", m: "13,5 k impr · CTR 10,5 % · pos. 5 · ~90 clics/j", chip: "GSC ↑", chipTone: "good" },
+    { k: "Santé technique", v: "83/0", m: "recette verif-404 · sitemap 43/43 en 200", chip: "OK", chipTone: "good" },
+    { k: "Pages indexées",  v: "50", m: "+21 vs la veille · doublons 63 → 18", chip: "+72 %", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "11/26", m: "groupe A 8/10 · stable (mesure à J+1)", chip: "SUIVI", chipTone: "warn" },
+    { k: "Clics (22 j)", v: "1,54 k", m: "14,6 k impr · CTR 10,5 % · pos. 5,2 · 583 requêtes", chip: "GSC", chipTone: "good" },
   ],
 
   milestones: [
@@ -234,12 +234,15 @@ const DATA = {
   ],
 
   health: [
-    { lbl: "Recette verif-404.sh (déployé 16/07)", tag: "82 · 0 échec", tone: "good" },
+    { lbl: "Recette verif-404.sh (rejouée le 28/07)", tag: "83 · 0 échec", tone: "good" },
+    { lbl: "Adresse /contact — ancienne « Saint Michel » supprimée", tag: "corrigée", tone: "good" },
+    { lbl: "6 routes sans métadonnées — canonical auto-référent", tag: "6/6 · 4 noindex", tone: "good" },
+    { lbl: "23 articles de blog — titre + description propres", tag: "23/23", tone: "good" },
     { lbl: "URL inexistante → vrai 404 (soft-404 corrigé)", tag: "404", tone: "good" },
     { lbl: "Vestiges WordPress / spam → 410", tag: "410", tone: "good" },
-    { lbl: "22 articles de blog servis", tag: "22/22 · 200", tone: "good" },
+    { lbl: "23 articles de blog servis", tag: "23/23 · 200", tone: "good" },
     { lbl: "Canonical auto-référent (plus de canonical qui redirige)", tag: "correct", tone: "good" },
-    { lbl: "Sitemap — chaque URL répond 200", tag: "40/40", tone: "good" },
+    { lbl: "Sitemap — chaque URL répond 200", tag: "43/43", tone: "good" },
     { lbl: "301 anciennes URLs → 1 seul saut, cibles en 200", tag: "10/10", tone: "good" },
     { lbl: "/randonnee/ → 301 → /urgences-24h/ (signal transféré)", tag: "301", tone: "good" },
     { lbl: "11 URLs clés (accueil + 5 pages + services/contact + fichiers)", tag: "11/11 · 200", tone: "good" },
@@ -258,8 +261,8 @@ const DATA = {
     { kw: "laboratoire d'analyses médicales Sénégal", status: "Absent", tone: "crit", pos: "—  sort du top", target: "4 → absent · même SERP concurrentielle" },
     { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  =", target: "#3 tenu · via /randonnee/ (301)" },
     { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /nous-contacter" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "3 → 2" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 7  ↑", target: "8 → 7" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 7  =", target: "#7 tenu" },
     { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · Bio 24 garde #2 et #3" },
     { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /resultats-fiv" },
     { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · point fort fertilité" },
@@ -267,13 +270,15 @@ const DATA = {
   ],
 
   searchConsole: [
-    { k: "Impressions (20 j)", v: "13,5 k" },
-    { k: "Clics (20 j)", v: "1,42 k" },
-    { k: "Position moyenne", v: "5" },
-    { k: "CTR moyen", v: "10,5 %" },
+    { k: "Impressions (22 j)", v: "14,6 k" },
+    { k: "Clics (22 j)", v: "1,54 k" },
+    { k: "Position moyenne", v: "5,2" },
+    { k: "Pages indexées", v: "50" },
   ],
 
   journal: [
+    { date: "28 juil. 2026 — Relevé POST-DÉPLOIEMENT (J+1, hors cadence hebdomadaire)",
+      txt: "Les trois lots de correctifs sont déployés et vérifiés en production. ✅ Recette technique : 83 réussis / 0 échoué, sitemap 43/43 URLs en 200. Adresse /contact corrigée (l'ancienne « 13 bis rue Saint Michel » a disparu des 3 balises) ; les 6 routes sans métadonnées ont un canonical auto-référent, dont 4 en noindex ; les 23 articles de blog ont enfin un titre et une description propres au lieu d'hériter de l'accueil. ⭐ L'EFFET SUR L'INDEX EST IMMÉDIAT ET MASSIF : les pages « Dans l'index » passent de 29 à 50 (+72 %) et les « doublons sans URL canonique » s'effondrent de 63 à 18 (−71 %) — exactement la cible du correctif. Le parc legacy se débloque après trois semaines de gel total : « explorée, actuellement non indexée » 623 → 420 (−203), transféré vers 404 (1 → 46) et redirections (12 → 30), signature du correctif soft-404 du 16/07 qui achève sa propagation. ⚠️ Réserve de méthode : le rapport d'indexation de Search Console est daté et agrège des explorations antérieures — une causalité « déployé ce matin, indexé ce midi » n'est pas défendable ; l'attribution des −45 doublons aux canonicals déployés aujourd'hui reste à confirmer au prochain relevé. Positions strictement stables (11/26, groupe A 8/10), ce qui est attendu à J+1 : tout mouvement y serait du bruit de SERP. Search Console : 1,54 k clics · 14,6 k impressions · CTR 10,5 % · position 5,2 (05–26/07), et les requêtes distinctes montent de 543 à 583 — la surface de requêtes s'élargit. Le nouvel article /blog/prise-de-sang-a-jeun/ est en ligne et son indexation a été demandée dans Search Console (file d'attente d'exploration prioritaire). À surveiller au prochain relevé de cadence : les doublons tiennent-ils à 18, l'article est-il indexé, et les 22 autres articles gagnent-ils des impressions maintenant qu'ils ont des métadonnées propres." },
     { date: "Semaine du 27 juil. 2026 — S5 (relevé complet + Search Console)",
       txt: "Semaine à deux visages. ✅ Santé technique RAS (11/11 en 200, URL inconnue → 404, /randonnee/ → 301 → /urgences-24h/, GA + adresse + 301 OK) — aucune alerte, statut identique à S4. ✅ Le trafic ACCÉLÈRE : 1,42 k clics · 13,5 k impressions · CTR 10,5 % · position 5 (05–24/07, ~20 j). Les 4 jours ajoutés depuis S4 apportent +360 clics et +3 200 impressions, soit ~90 clics/j contre ~66 clics/j de moyenne cumulée — première rupture de rythme à la hausse depuis le début du suivi (S3 et S4 étaient parfaitement linéaires) ; le CTR remonte aussi (10,3 % → 10,5 %) et 543 requêtes distinctes remontent des impressions. ⚠️ MAIS les deux génériques les plus disputées décrochent du top 10 : « laboratoire analyse médicale Dakar » (#2 → absent) et « laboratoire d'analyses médicales Sénégal » (#4 → absent) — le groupe A passe de 10/10 à 8/10 visibles, total 11/26. Ce n'est PAS un problème technique : la variante marquée ressort à ~#3 (le site est bien indexé et éligible) et /nous-contacter — la page qui portait ces deux positions — ranke toujours #1 sur « ouvert la nuit ». C'est un déclassement concurrentiel : Biolab7, BIONISSA, Bio7, SUNULABO, Houdrouge et Bio Renaissance occupent tout le top 10, tous avec une home optimisée exactement sur cette requête. ⬤ En face, un gain net et durable côté fertilité : « transfert embryon congelé Dakar » entre à ~#2 (1re apparition depuis S0, via /resultats-fiv), et tout le cluster FIV est stable en top 3 (FIV #2, taux de réussite #1, résultats FIV #2, spermogramme #2). Domicile en progrès : prélèvement #3→#2, prise de sang #8→#7. Indexation identique au chiffre près pour la 3e semaine (29 dans l'index · 882 non indexées). À traiter : les positions restantes reposent encore sur des URLs legacy (/randonnee/, /presentation-bio-24/, /Actu Lab/…) et non sur les pages SEO dédiées, qui ne remontent toujours pas en propre ; retravailler le H1/title de l'accueil sur « Laboratoire d'analyses médicales à Dakar » ; corriger l'ancienne adresse « 13 bis Rue St Michel » encore affichée sur plusieurs annuaires tiers." },
     { date: "Semaine du 22 juil. 2026 — S4 (relevé complet + Search Console)",
