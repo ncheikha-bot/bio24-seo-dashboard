@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "30 juil. 2026 · semaine S6",
-  overall: "good",              // good | warn | crit
-  overallLabel: "Rien ne se dégrade · les gains d'index tiennent (50)",
+  updatedLabel: "2 août 2026 · semaine S7",
+  overall: "warn",              // good | warn | crit
+  overallLabel: "Trafic en accélération · 2 mots-clés sortent du top 10",
 
   stats: [
-    { k: "Santé technique", v: "83/0", m: "recette rejouée · sitemap 43/43 en 200", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "50", m: "stable · les 18 doublons tiennent", chip: "TENU", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "11/26", m: "groupe A 8/10 · 25 des 26 immobiles", chip: "STABLE", chipTone: "good" },
-    { k: "Clics (24 j)", v: "1,67 k", m: "16,2 k impr · CTR 10,3 % · pos. 5,4 · 633 requêtes", chip: "GSC", chipTone: "good" },
+    { k: "Santé technique", v: "11/11", m: "8 pages + 3 fichiers en 200 · 3 redirections 301 OK", chip: "OK", chipTone: "good" },
+    { k: "Pages indexées",  v: "50", m: "3e relevé identique · les 18 doublons tiennent", chip: "TENU", chipTone: "good" },
+    { k: "Mots-clés visibles", v: "9/26", m: "groupe A 7/10 · 2 sorties du top 10", chip: "−2", chipTone: "warn" },
+    { k: "Clics (27 j)", v: "1,91 k", m: "18,7 k impr · CTR 10,2 % · pos. 5,7 · 748 requêtes", chip: "GSC", chipTone: "good" },
   ],
 
   milestones: [
@@ -234,7 +234,8 @@ const DATA = {
   ],
 
   health: [
-    { lbl: "Recette verif-404.sh (rejouée le 30/07)", tag: "83 · 0 échec", tone: "good" },
+    { lbl: "Recette verif-404.sh (dernier passage le 30/07 — aucun déploiement depuis)", tag: "83 · 0 échec", tone: "good" },
+    { lbl: "8 pages clés + 3 fichiers vérifiés le 02/08", tag: "11/11 · 200", tone: "good" },
     { lbl: "Adresse /contact — ancienne « Saint Michel » supprimée", tag: "corrigée", tone: "good" },
     { lbl: "6 routes sans métadonnées — canonical auto-référent", tag: "6/6 · 4 noindex", tone: "good" },
     { lbl: "23 articles de blog — titre + description propres", tag: "23/23", tone: "good" },
@@ -257,26 +258,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "crit", pos: "—  absent", target: "3e relevé absent · aucune action menée depuis S5" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Absent", tone: "crit", pos: "—  absent", target: "3e relevé absent · même SERP concurrentielle" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Absent", tone: "crit", pos: "—  absent", target: "4e relevé absent · aucune action menée depuis S5" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Absent", tone: "crit", pos: "—  absent", target: "4e relevé absent · même SERP concurrentielle" },
     { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  =", target: "#3 tenu · encore via /randonnee/ (301)" },
     { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /nous-contacter" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "warn", pos: "≈ 8  ↓", target: "#7 → #8 · 1 rang, dans le bruit" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · Bio 24 garde #2 et #3" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · le service reste bien placé" },
+    { kw: "prise de sang à domicile Dakar", status: "Absent", tone: "crit", pos: "—  ↓ sortie", target: "#8 → absent · top 10 sans Bio 24 · à retravailler on-page" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 2  ⬤", target: "#2 tenu · 4 URLs Bio 24 dans le top 5" },
     { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  =", target: "#1 tenu · /resultats-fiv" },
     { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu · point fort fertilité" },
     { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "#2 tenu" },
   ],
 
   searchConsole: [
-    { k: "Impressions (24 j)", v: "16,2 k" },
-    { k: "Clics (24 j)", v: "1,67 k" },
-    { k: "Position moyenne", v: "5,4" },
+    { k: "Impressions (27 j)", v: "18,7 k" },
+    { k: "Clics (27 j)", v: "1,91 k" },
+    { k: "Position moyenne", v: "5,7" },
     { k: "Pages indexées", v: "50" },
   ],
 
   journal: [
+    { date: "Semaine du 2 août 2026 — S7 (relevé complet + Search Console)",
+      txt: "Semaine à deux vitesses : le trafic accélère, le positionnement recule sur deux requêtes. ✅ Santé technique irréprochable : 8/8 pages en 200 (accueil + les 5 pages SEO + services + contact), 3/3 fichiers en 200 (sitemap, robots, llms), GA G-4HQDXLM1K3 présent, adresse « Abdou Karim Bourgi » dans le schema (0× Bourgui, 0× Saint Michel), les 3 redirections 301 opérationnelles en 1 saut. Aucune alerte, aucune régression. ⭐ LE TRAFIC ACCÉLÈRE : 1,91 k clics · 18,7 k impressions · CTR 10,2 % · position 5,7 (05–31/07, ~27 j). Les 3 jours ajoutés apportent +240 clics et +2 500 impressions, soit ~80 clics/j — au-dessus de la cadence de croisière (~65 clics/j). Et surtout la surface de requêtes explose : 633 → 748 requêtes distinctes (+115 en un seul relevé, le plus gros bond du suivi ; +205 en trois relevés). 73 pages génèrent des impressions (vs 68), et les deux pages SEO qui travaillent progressent : /fiv-biologie-reproduction (46 → 54 clics · 3,08 k impr) et /services (38 → 51 clics · 3,18 k impr). Le léger tassement du CTR (10,3 → 10,2 %) et de la position (5,4 → 5,7) est une dilution mécanique, cohérente avec cet élargissement. ✅ L'index tient pour la 3e mesure consécutive : 50 pages dans l'index · 678 non indexées, les 9 motifs identiques au chiffre près, et les « doublons sans URL canonique » toujours à 18 — sur 5 jours cette fois, ce qui répond au point n°1 de S6 avec une vraie marge. ⬤ Deux signaux qualitatifs forts : sur « FIV Dakar laboratoire », Bio 24 occupe désormais 4 des 5 premières lignes (/fiv-biologie-reproduction #2, /services #3, /resultats-fiv #4, /nous-contacter #5) — la plus forte occupation de SERP jamais mesurée, et elle est portée par des pages SEO dédiées, pas par du legacy ; et les pages propres remontent enfin dans les résultats (/blog/, /faq/, /manuel-prelevement/, /presentation apparaissent là où le site: était intégralement legacy en S6). ⚠️ MAIS deux mots-clés sortent du top 10 : « prise de sang à domicile Dakar » (#8 → absent, le top 10 est tenu par Imodsen, Bio Renaissance, Discacciati, Houdrouge, Medic'Kane — aucune URL Bio 24) et « transfert embryon congelé Dakar » (#2 → absent, la SERP a basculé vers du contenu explicatif 100 % français/belge et a perdu toute intention géographique). Total 9/26, groupe A 7/10 (contre 8/10). À noter : la requête sœur « prélèvement à domicile Dakar » tient son #2 — c'est bien la variante « prise de sang » qui décroche, pas le service : chantier on-page concret sur le H1/title de /prelevement-a-domicile. Seul gain de rang : « laboratoire de garde Dakar » #6 → #5 (fiche DIMO). ⏳ /blog/prise-de-sang-a-jeun/ toujours pas indexé à J+5 (ni en SERP ni dans le top 10 des pages) — si toujours rien à J+12, redemander une inspection d'URL. ⚠️ Les deux génériques concurrentielles restent absentes pour le 4e relevé consécutif : aucune action menée, le H1 de l'accueil reste piloté par le slider. C'est le principal chantier ouvert." },
     { date: "Semaine du 30 juil. 2026 — S6 (relevé complet + Search Console)",
       txt: "Semaine calme et saine — la première du suivi où RIEN ne se dégrade. ✅ Santé technique : recette verif-404.sh rejouée à 83 réussis / 0 échoué, 11/11 URLs clés en 200, sitemap 43/43 en 200, URL inconnue → 404, /randonnee/ → 301 en 1 saut, canonicals auto-référents corrects, GA présent, adresse « Abdou Karim Bourgi » (0× Bourgui, 0× Saint Michel), les 3 redirections 301 OK. Aucune alerte, aucune régression. ⭐ LES GAINS D'INDEX DU DÉPLOIEMENT TIENNENT : 50 pages dans l'index · 678 non indexées, avec les 9 motifs identiques au chiffre près à J+1 — et surtout les « doublons sans URL canonique » restent à 18 (ils étaient à 63 avant le correctif). Le gain de S5bis n'était donc pas un artefact d'affichage. Réserve honnête en sens inverse : le rapport d'indexation est daté et rafraîchi avec latence — deux jours ne suffisent pas à distinguer « stabilisé » de « pas encore recalculé », confirmation à chercher en S7. ✅ Positionnement : le relevé le plus stable du suivi — 25 des 26 mots-clés à leur position exacte de la veille. Total 11/26, groupe A 8/10, 2 en #1 (ouvert la nuit, taux de réussite FIV), 6 en top 3. Seul mouvement : prise de sang à domicile ~#7 → ~#8, un rang, dans le bruit. ⬤ Nouveauté qualitative : /management-qualite/ entre en SERP à ~#5 sur « laboratoire accrédité ISO 15189 Sénégal », en plus de l'URL legacy qui garde le ~#4 — c'est la PREMIÈRE FOIS qu'une page dédiée vient doubler une URL legacy sur une requête suivie ; Bio 24 occupe maintenant deux lignes du top 5, exactement le mouvement attendu du correctif de canonicals. ✅ Search Console (5e relevé auto consécutif) : 1,67 k clics · 16,2 k impressions · CTR 10,3 % · position 5,4 (05–28/07, ~24 j). Les 2 jours ajoutés apportent +130 clics et +1 600 impressions, soit ~65 clics/j — retour exact à la cadence de croisière de S3/S4 après le pic apparent de S5 (~90 clics/j). Le léger tassement du CTR (10,5 → 10,3 %) et de la position (5,2 → 5,4) est une dilution mécanique : les requêtes distinctes montent de 583 à 633 (+50, et +90 en trois relevés), donc plus de requêtes longues et mal classées font baisser la moyenne sans que rien ne se dégrade. 68 pages génèrent des impressions ; /fiv-biologie-reproduction (46 clics · 2,6 k impr) et /services (38 · 2,5 k) travaillent réellement. ⏳ En attente : /blog/prise-de-sang-a-jeun/ n'est toujours pas indexé (J+2, normal) et aucun article de blog n'apparaît encore dans le top 10 des pages — le point « les 22 autres articles gagnent-ils des impressions ? » reste sans réponse mesurable à 2 jours. ⚠️ Les deux génériques concurrentielles (analyse médicale Dakar, analyses médicales Sénégal) ne sont pas revenues : aucune action n'a été menée sur ce front, le H1 de l'accueil reste piloté par le slider. C'est le principal chantier ouvert — aucune amélioration à espérer sans intervention." },
     { date: "28 juil. 2026 — Relevé POST-DÉPLOIEMENT (J+1, hors cadence hebdomadaire)",
