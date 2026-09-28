@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "14 septembre 2026 · semaine S13 (Search Console relevé le 18/09)",
+  updatedLabel: "28 septembre 2026 · semaine S15 (pas de relevé S14)",
   overall: "good",              // good | warn | crit
-  overallLabel: "✅ Bond de S12 CONFIRMÉ · groupe A 10/10 tenu · 15/26 · 4 en #1 (record) · aucun recul 2e semaine · ✅ Search Console relevé : 598 clics/7 j (~85/j) · index 44 (+5) · build du 03/08 non déployé (J+42)",
+  overallLabel: "✅ Palier tenu pour le 3e relevé · groupe A 10/10 · 15/26 · 5 en #1 (record, « ouvert la nuit » reprend le #1) · 2 reculs légers (liste, garde) · Search Console : 571 clics/7 j (~82/j), 9,13 k impressions (+6 %) · index 43 (−1) · 1re requête non-marque dans le top 10 GSC",
 
   stats: [
     { k: "Santé technique", v: "12/12", m: "8 pages + 3 fichiers + blog en 200 · 3 redirections 301 OK · GA ×2 · adresse correcte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "44", m: "+5 vs S10 · 501 non indexées (−51) · doublons sans canonique 5 (63 avant le 28/07) · rapport du 14/09", chip: "en hausse", chipTone: "good" },
-    { k: "Mots-clés visibles", v: "15/26", m: "= record S12 · groupe A 10/10 tenu · 4 en #1 · 4 gains, AUCUN recul (2e semaine)", chip: "A 10/10", chipTone: "good" },
-    { k: "Clics", v: "598", m: "7 jours (09→15/09) · 8,64 k impressions · ~85 clics/j contre ~79/j en S10 · 5,58 k clics sur 3 mois", chip: "7 jours", chipTone: "good" },
+    { k: "Pages indexées",  v: "43", m: "−1 vs S13 · 511 non indexées (+10) · 404 81 (+7) · redirections 59 (+5) · rapport du 21/09", chip: "stable", chipTone: "warn" },
+    { k: "Mots-clés visibles", v: "15/26", m: "= 3e relevé · groupe A 10/10 · 5 en #1 (record) · 2 gains, 2 reculs légers, 0 sortie", chip: "A 10/10", chipTone: "good" },
+    { k: "Clics", v: "571", m: "7 jours (19→25/09) · 9,13 k impressions (+6 %) · CTR 6,3 % · ~82 clics/j (−4,5 % vs S13)", chip: "7 jours", chipTone: "good" },
   ],
 
   milestones: [
@@ -238,10 +238,11 @@ const DATA = {
     { lbl: "Search Console — accès rétabli le 18/09 : la propriété est sur ncheikha@gmail.com (3e compte Chrome), URLs en /u/2/ — cause réelle des 3 semaines d'échec", tag: "résolu", tone: "good" },
     { lbl: "/blog/crp-inflammation-diagnostic/ — 703 impressions pour ZÉRO clic en position 9,3, inchangé depuis S10", tag: "gisement dormant", tone: "warn" },
     { lbl: "Les pages SEO ne rankent pas sur leurs propres requêtes — « analyse médicale urgence » et « prise de sang à domicile » sont portées par l'accueil, « prélèvement à domicile » par du legacy", tag: "CHANTIER ON-PAGE", tone: "crit" },
-    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+42", tone: "warn" },
+    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+56", tone: "warn" },
     { lbl: "Fiche annuaire DIMO — adresse fautive « rue Abdou Karim BOURGUI », visible sur 3 requêtes cette semaine (ouvert 24h, la nuit, garde)", tag: "À CORRIGER", tone: "crit" },
+    { lbl: "Index GSC : 404 81 (+7) et redirections 59 (+5) en hausse au rapport du 21/09 — anciennes URLs WordPress recrawlées", tag: "à surveiller", tone: "warn" },
     { lbl: "Recette verif-404.sh (dernier passage le 30/07 — aucun déploiement depuis)", tag: "83 · 0 échec", tone: "good" },
-    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 14/09", tag: "12/12 · 200", tone: "good" },
+    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 28/09", tag: "12/12 · 200", tone: "good" },
     { lbl: "ISO 15189 — retour à ~#3 : l'éviction de S11 était bien conjoncturelle (actualité Abass Ndao), hypothèse confirmée", tag: "résolu", tone: "good" },
     { lbl: "/blog/prise-de-sang-a-jeun/ — 307 impressions, 3 clics, position 12,7 sur 7 jours (18/09)", tag: "indexé", tone: "good" },
     { lbl: "Les 5 pages SEO génèrent toutes des impressions · /fiv-biologie-reproduction 22 clics, /urgences-24h 3, /faq 1, /prelevement-a-domicile 1, /resultats-fiv 0 (7 j)", tag: "5/5", tone: "good" },
@@ -271,26 +272,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 CONFIRMÉ au 2e relevé · le bond de S12 n'était pas un pic · accueil devant Imodsen, Bio7, BIONISSA" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Record tenu au 2e relevé · accueil derrière la page Facebook de Biolab7" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "LinkedIn Bio-24 #1, site #2, legacy #3, fiche DIMO #4 et #10" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu au 2e relevé · tête de SERP reconfigurée (Institut Pasteur #1, LinkedIn sort) · DIMO ~#3" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Derrière Reliance Health · toujours via l'URL legacy /Actu Lab/, pas la page dédiée" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "warn", pos: "≈ 7  ↑ +2", target: "Se renforce au 2e relevé (~#9 → ~#7) · toujours portée par l'accueil, pas par /prelevement-a-domicile · seule du groupe A hors top 3" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "Podium complet 3e relevé d'affilée (#1 /fiv-biologie-reproduction, #2 /services, #3 /resultats-fiv)" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu 3 relevés d'affilée · accueil devant Imodsen, Bio7, BIONISSA" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "3e relevé à ~#2 · accueil derrière la page Facebook de Biolab7" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "LinkedIn Bio-24 #1, site #2, /rendez-vous/ #3, legacy #4, DIMO #5 et #10" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 RETROUVÉ (perdu depuis S10) · devant Institut Pasteur #2 et DIMO #3" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Derrière Reliance Health · désormais via /rendez-vous/ (#2) + legacy /Actu Lab/ (#3) — toujours pas la page dédiée" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "warn", pos: "≈ 7  =", target: "Tenu · toujours portée par l'accueil, pas par /prelevement-a-domicile · seule du groupe A hors top 3" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "Podium complet 4e relevé d'affilée (#1 /fiv-biologie-reproduction, #2 /services, #3 /resultats-fiv)" },
     { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Position tenue · /resultats-fiv derrière Jeune Afrique" },
-    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "Meilleure position depuis S7 · 3e relevé consécutif en top 10 · /resultats-fiv devant l'APS" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu 3 relevés d'affilée · devant med.tn, BIONISSA, Institut Pasteur" },
+    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · /resultats-fiv derrière Jeune Afrique, devant l'APS" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu 4 relevés d'affilée · devant med.tn, BIONISSA, Institut Pasteur" },
   ],
 
   searchConsole: [
-    { k: "Impressions", v: "8,64 k" },
-    { k: "Clics", v: "598" },
+    { k: "Impressions", v: "9,13 k" },
+    { k: "Clics", v: "571" },
     { k: "Position moyenne", v: "6,5" },
-    { k: "Pages indexées", v: "44" },
+    { k: "Pages indexées", v: "43" },
   ],
 
   journal: [
+    { date: "Semaine du 28 septembre 2026 — S15 (pas de relevé S14)",
+      txt: "✅ LE PALIER TIENT POUR LE 3e RELEVÉ : 15/26, groupe A complet 10/10, 9/10 du groupe A en top 3. ⭐ CINQ #1 SIMULTANÉS (record, précédent 4) : « laboratoire ouvert la nuit Dakar » reprend le #1 perdu depuis S10 (~#2 → ~#1, devant l'Institut Pasteur), s'ajoutant à laboratoire analyse médicale Dakar, FIV Dakar laboratoire (podium complet 4e relevé), spermogramme Dakar et résultats analyses en ligne Dakar (désormais via /acceder-aux-resultats/). ↑ « analyse médicale urgence Dakar » ~#8 → ~#7 (toujours via l'accueil). ↓ Deux reculs légers : « analyses médicales liste Dakar » ~#2 → ~#3 et « laboratoire de garde Dakar » ~#5 → ~#7 (DIMO #7, site #8). Aucune sortie, aucune apparition. Nouveau : /rendez-vous/ ranke #2 sur « prélèvement à domicile Dakar » et #3 sur « ouvert 24h » ; site: remonte enfin des URLs du nouveau site (accueil, /services/, /reservation) mais toujours 0/5 pages SEO. ✅ SEARCH CONSOLE RELEVÉ AUTOMATIQUEMENT (7 j, 19→25/09) : 571 clics (−4,5 %) · 9,13 k impressions (+6 %) · CTR 6,3 % (−0,6 pt) · position 6,5 (=). 696 requêtes distinctes (+113) et ⬤ PREMIÈRE REQUÊTE NON-MARQUE DANS LE TOP 10 : « importance de la metrologie » (6 clics). Index 43 (−1), non indexées 511 (+10) dont 404 81 (+7) et redirections 59 (+5) ; explorées-non-indexées 219 (−2). ✅ Santé technique 12/12 OK. ⚠️ Build du 03/08 toujours pas en ligne (J+56). 🎯 Chantier CTR /faq + /urgences-24h toujours ouvert." },
     { date: "Semaine du 14 septembre 2026 — S13 · Search Console (relevé le 18/09) ✅",
       txt: "✅ SEARCH CONSOLE RELEVÉ LE 18/09 — la série de 3 semaines sans données est rompue, et la cause des échecs est identifiée : la propriété appartient à ncheikha@gmail.com, le 3e compte du profil Chrome (URLs en /u/2/) ; les comptes /u/0/ et /u/1/ renvoient « pas accès à cette propriété ». ⭐ LE TRAFIC A CHANGÉ D\'ÉCHELLE : 598 clics · 8,64 k impressions · CTR 6,9 % · position 6,5 sur 7 jours (09→15/09), soit ~85 clics/j contre ~79/j en S10 et ~65/j en croisière ; 5,58 k clics · 75,8 k impressions sur 3 mois. Le CTR se dilue encore (8,7 % → 6,9 %) : signature de l\'entrée du blog sur des requêtes informationnelles, pas d\'une perte de performance. ✅ L\'INDEX PROGRESSE POUR LA PREMIÈRE FOIS DEPUIS S8 : 44 pages dans l\'index (+5 vs S10), 501 non indexées (−51), explorées-non-indexées 280 → 221, et les doublons sans URL canonique tombent de 10 à 5 — ils étaient à 63 avant le correctif du 28/07, soit −92 %. 🎯 NOUVEAU CHANTIER, LE PLUS RENTABLE DU SITE : LE CTR DE /faq ET /urgences-24h. Les deux pages cumulent ~1 900 impressions pour 4 clics (CTR 0,1 % et 0,4 %) en positions 3,6 et 5,1 — d\'excellentes positions qui ne convertissent pas. C\'est un problème de title et de meta description, pas de classement, corrigeable sans toucher au contenu. Même diagnostic sur /services (1 423 impr, 9 clics) et /presentation (1 270 impr, 2 clics). Détail des 5 pages SEO sur 7 jours : /fiv-biologie-reproduction 22 clics · 476 impr, /urgences-24h 3 · 747, /faq 1 · 1 162, /prelevement-a-domicile 1 · 102, /resultats-fiv 0 · 112. Hors pages SEO, l\'accueil fait 295 clics · 3 820 impr (position 4,1) et /resultats/ 110 clics · 1 526 impr en position 2,6 — cohérent avec son #1 sur « résultats analyses en ligne Dakar ». ⚠️ Le gisement dormant de S10 n\'a pas bougé : /blog/crp-inflammation-diagnostic/ fait 703 impressions pour ZÉRO clic en position 9,3. 📌 Les 583 requêtes distinctes sont toujours dominées à 100 % par la marque dans le top 10 (« bio 24 » 153 clics) : les positions #1-#3 sur les génériques ne se sont pas encore converties en volume." },
     { date: "Semaine du 14 septembre 2026 — S13 · positionnement",
