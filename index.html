@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "28 septembre 2026 · semaine S15 (pas de relevé S14)",
-  overall: "good",              // good | warn | crit
-  overallLabel: "✅ Palier tenu pour le 3e relevé · groupe A 10/10 · 15/26 · 5 en #1 (record, « ouvert la nuit » reprend le #1) · 2 reculs légers (liste, garde) · Search Console : 571 clics/7 j (~82/j), 9,13 k impressions (+6 %) · index 43 (−1) · 1re requête non-marque dans le top 10 GSC",
+  updatedLabel: "5 octobre 2026 · semaine S16",
+  overall: "warn",              // good | warn | crit
+  overallLabel: "↓ Premier repli depuis S11 : 13/26 (−2) · groupe A 9/10 (« prise de sang à domicile » sort) · 4 en #1 (2 nouveaux : Sénégal, taux FIV · 3 perdus : Dakar, la nuit, spermogramme) · Search Console : 517 clics/7 j (−9,5 %), ~9,5 k impressions (+4 %), CTR 5,4 % · santé technique 12/12 OK",
 
   stats: [
     { k: "Santé technique", v: "12/12", m: "8 pages + 3 fichiers + blog en 200 · 3 redirections 301 OK · GA ×2 · adresse correcte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "43", m: "−1 vs S13 · 511 non indexées (+10) · 404 81 (+7) · redirections 59 (+5) · rapport du 21/09", chip: "stable", chipTone: "warn" },
-    { k: "Mots-clés visibles", v: "15/26", m: "= 3e relevé · groupe A 10/10 · 5 en #1 (record) · 2 gains, 2 reculs légers, 0 sortie", chip: "A 10/10", chipTone: "good" },
-    { k: "Clics", v: "571", m: "7 jours (19→25/09) · 9,13 k impressions (+6 %) · CTR 6,3 % · ~82 clics/j (−4,5 % vs S13)", chip: "7 jours", chipTone: "good" },
+    { k: "Pages indexées",  v: "43", m: "= vs S15 · 511 non indexées · rapport GSC non rafraîchi depuis le 21/09 · site: montre 6/8 URLs du nouveau site", chip: "stable", chipTone: "warn" },
+    { k: "Mots-clés visibles", v: "13/26", m: "−2 vs S15 · groupe A 9/10 · 4 en #1 · 4 gains, 5 reculs, 2 sorties", chip: "A 9/10", chipTone: "warn" },
+    { k: "Clics", v: "517", m: "7 jours (26/09→02/10) · ~9,5 k impressions (+4 %) · CTR 5,4 % · ~74 clics/j (−9,5 % vs S15)", chip: "7 jours", chipTone: "warn" },
   ],
 
   milestones: [
@@ -235,14 +235,14 @@ const DATA = {
 
   health: [
     { lbl: "CTR à corriger sur /faq (1 162 impr, 1 clic, position 3,6) et /urgences-24h (747 impr, 3 clics, position 5,1) — excellentes positions qui ne convertissent pas : chantier title + meta description", tag: "CHANTIER LE PLUS RENTABLE", tone: "crit" },
-    { lbl: "Search Console — accès rétabli le 18/09 : la propriété est sur ncheikha@gmail.com (3e compte Chrome), URLs en /u/2/ — cause réelle des 3 semaines d'échec", tag: "résolu", tone: "good" },
+    { lbl: "Search Console — /u/2/ pointe désormais vers un autre compte (reconnexion demandée) ; relevé OK via authuser=ncheikha@gmail.com (→ /u/1/) le 05/10", tag: "OK", tone: "good" },
     { lbl: "/blog/crp-inflammation-diagnostic/ — 703 impressions pour ZÉRO clic en position 9,3, inchangé depuis S10", tag: "gisement dormant", tone: "warn" },
     { lbl: "Les pages SEO ne rankent pas sur leurs propres requêtes — « analyse médicale urgence » et « prise de sang à domicile » sont portées par l'accueil, « prélèvement à domicile » par du legacy", tag: "CHANTIER ON-PAGE", tone: "crit" },
-    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+56", tone: "warn" },
-    { lbl: "Fiche annuaire DIMO — adresse fautive « rue Abdou Karim BOURGUI », visible sur 3 requêtes cette semaine (ouvert 24h, la nuit, garde)", tag: "À CORRIGER", tone: "crit" },
+    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+63", tone: "warn" },
+    { lbl: "Fiche annuaire DIMO — adresse fautive « rue Abdou Karim BOURGUI », visible sur 2 requêtes cette semaine (ouvert 24h #8, garde #2)", tag: "À CORRIGER", tone: "crit" },
     { lbl: "Index GSC : 404 81 (+7) et redirections 59 (+5) en hausse au rapport du 21/09 — anciennes URLs WordPress recrawlées", tag: "à surveiller", tone: "warn" },
     { lbl: "Recette verif-404.sh (dernier passage le 30/07 — aucun déploiement depuis)", tag: "83 · 0 échec", tone: "good" },
-    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 28/09", tag: "12/12 · 200", tone: "good" },
+    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 05/10", tag: "12/12 · 200", tone: "good" },
     { lbl: "ISO 15189 — retour à ~#3 : l'éviction de S11 était bien conjoncturelle (actualité Abass Ndao), hypothèse confirmée", tag: "résolu", tone: "good" },
     { lbl: "/blog/prise-de-sang-a-jeun/ — 307 impressions, 3 clics, position 12,7 sur 7 jours (18/09)", tag: "indexé", tone: "good" },
     { lbl: "Les 5 pages SEO génèrent toutes des impressions · /fiv-biologie-reproduction 22 clics, /urgences-24h 3, /faq 1, /prelevement-a-domicile 1, /resultats-fiv 0 (7 j)", tag: "5/5", tone: "good" },
@@ -272,26 +272,28 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu 3 relevés d'affilée · accueil devant Imodsen, Bio7, BIONISSA" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "3e relevé à ~#2 · accueil derrière la page Facebook de Biolab7" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "LinkedIn Bio-24 #1, site #2, /rendez-vous/ #3, legacy #4, DIMO #5 et #10" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 RETROUVÉ (perdu depuis S10) · devant Institut Pasteur #2 et DIMO #3" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Derrière Reliance Health · désormais via /rendez-vous/ (#2) + legacy /Actu Lab/ (#3) — toujours pas la page dédiée" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "warn", pos: "≈ 7  =", target: "Tenu · toujours portée par l'accueil, pas par /prelevement-a-domicile · seule du groupe A hors top 3" },
-    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "Podium complet 4e relevé d'affilée (#1 /fiv-biologie-reproduction, #2 /services, #3 /resultats-fiv)" },
-    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Position tenue · /resultats-fiv derrière Jeune Afrique" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "#1 perdu après 3 relevés · la page Facebook de NurBio passe devant l'accueil" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "PREMIER #1 du suivi sur cette requête · accueil devant Bio7 et BIONISSA" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "Bio 24 occupe le top 5 : LinkedIn sn #1, LinkedIn fr #2, accueil #3, /rendez-vous/ #4, /presentation/ #5" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "Page Facebook Biolab7 #1 · le site via /nous-contacter #2, /presentation/ #10" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Legacy /Actu Lab/ #2 + /rendez-vous/ #3 · toujours pas la page dédiée" },
+    { kw: "prise de sang à domicile Dakar", status: "Absent", tone: "crit", pos: "absent  ⊘", target: "SORT du top 10 (était ~#7) · /prelevement-a-domicile ne ranke pas — build du 03/08 non déployé (J+63)" },
+    { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "Podium complet 5e relevé d'affilée (#1 /fiv-biologie-reproduction, #2 /services, #3 /resultats-fiv)" },
+    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 retrouvé · /resultats-fiv repasse devant Jeune Afrique" },
     { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · /resultats-fiv derrière Jeune Afrique, devant l'APS" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu 4 relevés d'affilée · devant med.tn, BIONISSA, Institut Pasteur" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "warn", pos: "≈ 4  ↓", target: "Fin d'une série de 4 #1 · EM-Consulte, Reliance Health, annuaire andrologues devant" },
   ],
 
   searchConsole: [
-    { k: "Impressions", v: "9,13 k" },
-    { k: "Clics", v: "571" },
-    { k: "Position moyenne", v: "6,5" },
+    { k: "Impressions", v: "~9,5 k" },
+    { k: "Clics", v: "517" },
+    { k: "Position moyenne", v: "6,6" },
     { k: "Pages indexées", v: "43" },
   ],
 
   journal: [
+    { date: "Semaine du 5 octobre 2026 — S16",
+      txt: "↓ PREMIER REPLI DEPUIS S11 : 13/26 (−2), groupe A 9/10. ⊘ Deux sorties : « prise de sang à domicile Dakar » (~#7 → absent, le groupe A n'est plus complet après 4 relevés) et « analyses médicales liste Dakar » (~#3 → absent). ⭐ Deux nouveaux #1 : « laboratoire d'analyses médicales Sénégal » (~#2 → ~#1, premier #1 du suivi sur cette requête) et « taux de réussite FIV Dakar » (~#2 → ~#1). ↓ Trois #1 perdus : « laboratoire analyse médicale Dakar » (→ #2, page Facebook NurBio #1), « ouvert la nuit » (→ #2, page Facebook Biolab7 #1), « spermogramme » (→ #4). ↓ 24h ~#2 → ~#3 (mais Bio 24 occupe le top 5 avec LinkedIn) · ISO 15189 ~#3 → ~#4. ↑ garde ~#7 → ~#3 · urgence ~#7 → ~#5. Tenus : prélèvement à domicile ~#2, FIV Dakar #1 (podium 5e relevé), résultats FIV ~#2, résultats en ligne #1. Total 4 #1 (5 en S15). site: bascule vers le nouveau site (6/8 URLs), toujours 0/5 pages SEO. ✅ SEARCH CONSOLE RELEVÉ AUTOMATIQUEMENT (7 j, 26/09→02/10) : 517 clics (−9,5 %) · ~9,5 k impressions (+4 %) · CTR 5,4 % (−0,9 pt) · position 6,6. 2e baisse de clics consécutive malgré plus d'impressions → le chantier CTR (/faq, /urgences-24h, /services) devient prioritaire. Index 43 (rapport du 21/09, non rafraîchi). ✅ Santé technique 12/12 OK. ⚠️ Build du 03/08 toujours pas en ligne (J+63). 🔴 Fiche DIMO « Bourgui » toujours visible." },
     { date: "Semaine du 28 septembre 2026 — S15 (pas de relevé S14)",
       txt: "✅ LE PALIER TIENT POUR LE 3e RELEVÉ : 15/26, groupe A complet 10/10, 9/10 du groupe A en top 3. ⭐ CINQ #1 SIMULTANÉS (record, précédent 4) : « laboratoire ouvert la nuit Dakar » reprend le #1 perdu depuis S10 (~#2 → ~#1, devant l'Institut Pasteur), s'ajoutant à laboratoire analyse médicale Dakar, FIV Dakar laboratoire (podium complet 4e relevé), spermogramme Dakar et résultats analyses en ligne Dakar (désormais via /acceder-aux-resultats/). ↑ « analyse médicale urgence Dakar » ~#8 → ~#7 (toujours via l'accueil). ↓ Deux reculs légers : « analyses médicales liste Dakar » ~#2 → ~#3 et « laboratoire de garde Dakar » ~#5 → ~#7 (DIMO #7, site #8). Aucune sortie, aucune apparition. Nouveau : /rendez-vous/ ranke #2 sur « prélèvement à domicile Dakar » et #3 sur « ouvert 24h » ; site: remonte enfin des URLs du nouveau site (accueil, /services/, /reservation) mais toujours 0/5 pages SEO. ✅ SEARCH CONSOLE RELEVÉ AUTOMATIQUEMENT (7 j, 19→25/09) : 571 clics (−4,5 %) · 9,13 k impressions (+6 %) · CTR 6,3 % (−0,6 pt) · position 6,5 (=). 696 requêtes distinctes (+113) et ⬤ PREMIÈRE REQUÊTE NON-MARQUE DANS LE TOP 10 : « importance de la metrologie » (6 clics). Index 43 (−1), non indexées 511 (+10) dont 404 81 (+7) et redirections 59 (+5) ; explorées-non-indexées 219 (−2). ✅ Santé technique 12/12 OK. ⚠️ Build du 03/08 toujours pas en ligne (J+56). 🎯 Chantier CTR /faq + /urgences-24h toujours ouvert." },
     { date: "Semaine du 14 septembre 2026 — S13 · Search Console (relevé le 18/09) ✅",
