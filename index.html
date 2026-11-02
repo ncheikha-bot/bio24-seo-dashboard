@@ -211,15 +211,15 @@
    redéploie. C'est la seule chose à changer.
    ================================================================ */
 const DATA = {
-  updatedLabel: "19 octobre 2026 · semaine S18",
+  updatedLabel: "2 novembre 2026 · semaine S20",
   overall: "good",              // good | warn | crit
-  overallLabel: "⭐ Record 18/26 (+5 vs S16) · groupe A de nouveau 10/10, tout en top 3 · 8 en #1 (record) · /prelevement-a-domicile ranke enfin #1 sur ses 2 requêtes · ⚠️ relevé fait en mode de recherche « extended » (le mode standard ne renvoyait rien d'exploitable) : gains à confirmer · Search Console non relevé (mauvais compte Google dans Chrome) · santé technique 12/12 OK",
+  overallLabel: "✅ Palier confirmé 17/26 (−1 vs S18) · groupe A 10/10, tout en top 2 · 7 en #1 · 4 des 5 apparitions de S18 tiennent (prise de sang à domicile reste #1) · taux de réussite FIV repasse #1 · ⚠️ Search Console non relevé (extension Chrome non joignable, 4 semaines sans chiffres) · santé technique 12/12 OK",
 
   stats: [
     { k: "Santé technique", v: "12/12", m: "8 pages + 3 fichiers + blog en 200 · 3 redirections 301 OK · GA ×2 · adresse correcte", chip: "OK", chipTone: "good" },
-    { k: "Pages indexées",  v: "à compléter", m: "GSC non relevé cette semaine (43 en S16) · site: montre 9 URLs dont 7 du nouveau site et 1/5 page SEO (/fiv-biologie-reproduction)", chip: "non relevé", chipTone: "warn" },
-    { k: "Mots-clés visibles", v: "18/26", m: "+5 vs S16, record · groupe A 10/10 · 8 en #1 · 5 gains, 3 reculs, 5 apparitions, 0 sortie", chip: "A 10/10", chipTone: "good" },
-    { k: "Clics", v: "à compléter", m: "Search Console non relevé : Chrome connecté avec cheikh@apporio.sn · dernier relevé S16 : 517 clics / 7 j", chip: "non relevé", chipTone: "warn" },
+    { k: "Pages indexées",  v: "à compléter", m: "GSC non relevé (43 en S16) · site: montre 8 URLs Bio 24 dont 7 du nouveau site et 1/5 page SEO (/fiv-biologie-reproduction)", chip: "non relevé", chipTone: "warn" },
+    { k: "Mots-clés visibles", v: "17/26", m: "−1 vs S18 (record 18) · groupe A 10/10 en top 2 · 7 en #1 · 4 gains, 1 recul, 0 apparition, 1 sortie (bilan hormonal)", chip: "A 10/10", chipTone: "good" },
+    { k: "Clics", v: "à compléter", m: "Search Console non relevé : extension Chrome non joignable · dernier relevé S16 : 517 clics / 7 j", chip: "non relevé", chipTone: "warn" },
   ],
 
   milestones: [
@@ -235,15 +235,17 @@ const DATA = {
 
   health: [
     { lbl: "CTR à corriger sur /faq (1 162 impr, 1 clic, position 3,6) et /urgences-24h (747 impr, 3 clics, position 5,1) — excellentes positions qui ne convertissent pas : chantier title + meta description", tag: "CHANTIER LE PLUS RENTABLE", tone: "crit" },
-    { lbl: "Search Console — le 19/10, authuser=ncheikha@gmail.com, /u/1/ et /u/2/ renvoient tous vers cheikh@apporio.sn « pas accès à cette propriété » : reconnecter ncheikha@gmail.com dans Chrome", tag: "NON RELEVÉ", tone: "warn" },
-    { lbl: "Méthode — en S18, le mode de recherche standard renvoyait des résultats hors sujet ; relevé refait en mode extended. Gains et apparitions à confirmer en S19", tag: "à confirmer", tone: "warn" },
+    { lbl: "Search Console — le 02/11, l'extension Claude in Chrome n'était pas joignable (2 tentatives) : 4 semaines sans chiffres de trafic (dernier relevé S16). Vérifier l'extension et le compte ncheikha@gmail.com dans Chrome", tag: "NON RELEVÉ", tone: "warn" },
+    { lbl: "Biolab7 est #1 via ses pages sociales (Facebook ×2, Instagram ×1) sur les 3 génériques « laboratoire analyse médicale Dakar », « … Sénégal » et « ouvert la nuit » ; Bio 24 tient #2 à chaque fois", tag: "concurrence sociale", tone: "warn" },
+    { lbl: "/notre-reseau/ — nouveau porteur (#1 garde, #2 24h, #4 nuit, #4 prélèvement) mais ses horaires « Lun-Ven 07h30-17h00 » sont lus comme contradictoires avec le 24h/24 de l'accueil : harmoniser", tag: "À HARMONISER", tone: "warn" },
+    { lbl: "Méthode — le mode de recherche standard renvoie toujours des résultats hors sujet (test refait le 02/11) ; le mode extended est la référence depuis S18. 4 des 5 apparitions de S18 confirmées au second relevé", tag: "confirmé", tone: "good" },
     { lbl: "/blog/crp-inflammation-diagnostic/ — 703 impressions pour ZÉRO clic en position 9,3, inchangé depuis S10", tag: "gisement dormant", tone: "warn" },
-    { lbl: "/prelevement-a-domicile ranke enfin #1 sur « prélèvement » ET « prise de sang à domicile » · reste « analyse médicale urgence » portée par l'accueil (/urgences-24h et /faq absents des SERP suivies)", tag: "EN PARTIE RÉGLÉ", tone: "warn" },
-    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+77", tone: "warn" },
-    { lbl: "Fiche annuaire DIMO — adresse fautive « rue Abdou Karim BOURGUI », toujours #2 sur « garde » (19/10) · distrobird affiche aussi « 13 Bis Rue »", tag: "À CORRIGER", tone: "crit" },
+    { lbl: "/prelevement-a-domicile tient #1 sur « prélèvement » ET « prise de sang à domicile » (2e relevé) · « analyse médicale urgence » #4 toujours portée par l'accueil (/urgences-24h et /faq absents des SERP suivies)", tag: "EN PARTIE RÉGLÉ", tone: "warn" },
+    { lbl: "Correctifs on-page du 03/08 (H1 accueil + variante « prise de sang ») en production — n'est plus un déblocage, devient une optimisation", tag: "NON DÉPLOYÉS · J+91", tone: "warn" },
+    { lbl: "Fiche annuaire DIMO — adresse fautive « rue Abdou Karim BOURGUI », #3 sur « garde » (02/11) · distrobird « 13 Bis Rue » #10 sur « ouvert 24h », signalée comme adresse « différente » par le moteur", tag: "À CORRIGER", tone: "crit" },
     { lbl: "Index GSC : 404 81 (+7) et redirections 59 (+5) en hausse au rapport du 21/09 — anciennes URLs WordPress recrawlées", tag: "à surveiller", tone: "warn" },
     { lbl: "Recette verif-404.sh (dernier passage le 30/07 — aucun déploiement depuis)", tag: "83 · 0 échec", tone: "good" },
-    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 19/10", tag: "12/12 · 200", tone: "good" },
+    { lbl: "8 pages clés + 3 fichiers + blog vérifiés le 02/11", tag: "12/12 · 200", tone: "good" },
     { lbl: "ISO 15189 — retour à ~#3 : l'éviction de S11 était bien conjoncturelle (actualité Abass Ndao), hypothèse confirmée", tag: "résolu", tone: "good" },
     { lbl: "/blog/prise-de-sang-a-jeun/ — 307 impressions, 3 clics, position 12,7 sur 7 jours (18/09)", tag: "indexé", tone: "good" },
     { lbl: "Les 5 pages SEO génèrent toutes des impressions · /fiv-biologie-reproduction 22 clics, /urgences-24h 3, /faq 1, /prelevement-a-domicile 1, /resultats-fiv 0 (7 j)", tag: "5/5", tone: "good" },
@@ -273,16 +275,16 @@ const DATA = {
 
   // Groupe A — les 10 prioritaires (détail des 26 dans le journal)
   keywords: [
-    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · la page Facebook Biolab7 reste #1, l'accueil #2 devant Bio7 et BIO Almadies" },
-    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu pour le 2e relevé · accueil devant BIONISSA et Bio7" },
-    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 retrouvé (depuis S3) · Bio 24 occupe les 6 premières lignes (accueil, emplois, FIV, services, résultats, présentation)" },
-    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · page Facebook Biolab7 #1, accueil #2" },
-    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 porté pour la 1re fois par la page dédiée /prelevement-a-domicile (le legacy /Actu Lab/ sort)" },
-    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 1  ⬤ #1", target: "Retour direct en #1 via /prelevement-a-domicile, alors que le build du 03/08 n'est toujours pas déployé · à confirmer" },
+    { kw: "laboratoire analyse médicale Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · la page Facebook Biolab7 reste #1, l'accueil #2 devant Imodsen, Bio7 et Bio Renaissance" },
+    { kw: "laboratoire d'analyses médicales Sénégal", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "La page Facebook Biolab7 prend le #1 · accueil #2 devant BIONISSA et Bio7" },
+    { kw: "laboratoire ouvert 24h Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu · Bio 24 occupe les 7 premières lignes (accueil, réseau, manuel, emplois, services, résultats, présentation)" },
+    { kw: "laboratoire ouvert la nuit Dakar", status: "Présent", tone: "good", pos: "≈ 2  =", target: "Tenu · Instagram Biolab7 #1, accueil #2, /notre-reseau #4, fiche DIMO #7" },
+    { kw: "prélèvement à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu par /prelevement-a-domicile · Bio 24 occupe les 5 premières lignes" },
+    { kw: "prise de sang à domicile Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 CONFIRMÉ au 2e relevé via /prelevement-a-domicile (accueil #8) · Discacciati, Sunulabo, Bio Renaissance derrière" },
     { kw: "FIV Dakar laboratoire", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu (/fiv-biologie-reproduction) · /services #3, /resultats-fiv #4, accueil #5" },
-    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 2  ↓", target: "Un article allAfrica (BFEM) passe #1, sans doute du bruit · /resultats-fiv #2" },
-    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 3  ↓", target: "Jeune Afrique et une page foot devant /resultats-fiv" },
-    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 retrouvé (#4 en S16) · /fiv-biologie-reproduction devant BIONISSA et med.tn" },
+    { kw: "taux de réussite FIV Dakar", status: "Présent", tone: "good", pos: "≈ 1  ↑ #1", target: "#1 retrouvé · /resultats-fiv devant IVI et fiv.fr, l'article allAfrica de S18 a disparu · /fiv #4" },
+    { kw: "résultats FIV Sénégal", status: "Présent", tone: "good", pos: "≈ 2  ↑", target: "Jeune Afrique #1, /resultats-fiv #2 (la page foot recule) · /fiv #9" },
+    { kw: "spermogramme Dakar", status: "Présent", tone: "good", pos: "≈ 1  = #1", target: "#1 tenu · /fiv-biologie-reproduction devant BIONISSA et med.tn, accueil #4" },
   ],
 
   searchConsole: [
@@ -294,6 +296,8 @@ const DATA = {
 
 
   journal: [
+    { date: "Semaine du 2 novembre 2026 — S20 (pas de relevé S19)",
+      txt: "✅ LE RECORD DE S18 SE CONFIRME : 17/26 (−1), GROUPE A 10/10 AVEC LES 10 LIGNES EN TOP 2, et 7 #1 (8 en S18). ✅ Réponse à la question de S18 : 4 des 5 apparitions tiennent au second relevé — « prise de sang à domicile Dakar » reste #1 via /prelevement-a-domicile, infirmier #5, AMH #6, transfert embryon congelé #8 → #6. Ce n'étaient pas des artefacts du changement de mode. ⊘ Seule sortie : « bilan hormonal Dakar » (#1 → absent), la SERP redevenant 100 % informationnelle. ⭐ « taux de réussite FIV Dakar » #2 → #1 (/resultats-fiv devant IVI et fiv.fr) · ↑ résultats FIV Sénégal #3 → #2 · ↑ urgence #5 → #4 (meilleure position du suivi, toujours via l'accueil). ↓ « laboratoire d'analyses médicales Sénégal » #1 → #2 : la page Facebook Biolab7 prend la tête — Biolab7 est désormais #1 social sur les 3 génériques (Facebook ×2, Instagram ×1), Bio 24 #2 à chaque fois. Tenus en #1 : 24h (Bio 24 sur les 7 premières lignes), prélèvement à domicile (5 premières lignes), FIV Dakar, spermogramme, garde. ⬤ Nouveau porteur /notre-reseau/ (#1 garde, #2 24h, #4 nuit, #4 prélèvement) — mais ses horaires « 07h30-17h00 » sont lus comme contradictoires avec le 24h/24 : à harmoniser. site: montre 8 URLs Bio 24 (7 nouveau site + 1 legacy), 1/5 page SEO. Mode standard toujours hors sujet (test refait) : extended = référence. ⚠️ SEARCH CONSOLE NON RELEVÉ : extension Claude in Chrome non joignable (2 tentatives), 4 semaines sans chiffres (dernier relevé S16). ✅ Santé technique 12/12 OK. ⚠️ Build du 03/08 J+91. 🔴 DIMO « Bourgui » #3 sur garde, distrobird « 13 Bis Rue » #10 sur 24h." },
     { date: "Semaine du 19 octobre 2026 — S18 (pas de relevé S17)",
       txt: "⭐ RECORD ABSOLU : 18/26 (+5 vs S16, ancien record 15) et le GROUPE A DE NOUVEAU COMPLET, 10/10, tout en top 3. HUIT #1, un record (précédent 5) : 6 dans le groupe A (Sénégal, 24h, prélèvement à domicile, prise de sang à domicile, FIV Dakar, spermogramme) et 2 dans le groupe B (garde, bilan hormonal). ⭐ /prelevement-a-domicile ranke enfin #1 sur SES DEUX requêtes, « prélèvement » et « prise de sang à domicile » (absent → #1), alors que le build du 03/08 n'est toujours pas déployé (J+77). ↑ 24h #3 → #1 (Bio 24 sur les 6 premières lignes) · spermogramme #4 → #1 · garde #3 → #1 · ISO 15189 #4 → #3. ⬤ Quatre premières apparitions dans le groupe B : bilan hormonal #1, infirmier prélèvement à domicile #5, AMH #6, transfert embryon congelé #8. ↓ taux FIV #1 → #2 · résultats FIV #2 → #3 · résultats en ligne #1 → #2. 0 sortie. site: montre 9 URLs, dont 7 du nouveau site et pour la 1re fois une page SEO (/fiv-biologie-reproduction). ⚠️ MÉTHODE : le mode de recherche standard renvoyait des résultats hors sujet cette semaine, tout le relevé a été refait en mode extended. Une partie des gains peut venir de ce changement : à confirmer en S19. ⚠️ SEARCH CONSOLE NON RELEVÉ : Chrome est connecté avec cheikh@apporio.sn, qui n'a pas accès à la propriété. Reconnecter ncheikha@gmail.com. ✅ Santé technique 12/12 OK. 🔴 Fiche DIMO « Bourgui » toujours visible." },
     { date: "Semaine du 5 octobre 2026 — S16",
